@@ -8,7 +8,8 @@ defmodule Midas.Finances.MoneySource do
     field :name, :string
     field :description, :string
     field :current_value, :decimal
-    field :user_id, :binary_id
+
+    belongs_to :user, Midas.Accounts.User
 
     timestamps(type: :utc_datetime)
   end

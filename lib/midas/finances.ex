@@ -21,6 +21,8 @@ defmodule Midas.Finances do
     Repo.all(MoneySource)
   end
 
+  defdelegate get_user_money_sources(user), to: Midas.Finances.MoneySources.Search
+
   @doc """
   Gets a single money_source.
 

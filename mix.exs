@@ -55,6 +55,8 @@ defmodule Midas.MixProject do
       {:finch, "~> 0.13"},
       {:telemetry_metrics, "~> 1.0"},
       {:telemetry_poller, "~> 1.0"},
+      {:ex_machina, "~> 2.8.0", only: :test},
+      {:faker, "~> 0.18", only: :test},
       {:decimal, "~> 2.0"},
       {:gettext, "~> 0.26"},
       {:jason, "~> 1.2"},
