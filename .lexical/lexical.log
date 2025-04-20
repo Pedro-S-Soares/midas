@@ -138,3 +138,143 @@ Lexical is compatible with the following versions of Erlang/OTP:
   >= 26.0.2
   >= 27.0.0
 
+09:57:52.100 [info] Child {LoggerFileBackend, :general_log} of Supervisor Logger.Backends.Supervisor started
+Pid: #PID<0.119.0>
+Start Call: Logger.Backends.Watcher.start_link({{LoggerFileBackend, :general_log}, {LoggerFileBackend, :general_log}})
+Restart: :transient
+Shutdown: 5000
+Type: :worker
+09:57:52.100 [info] Child Logger.Backends.Supervisor of Supervisor Logger.Backends.Internal started
+Pid: #PID<0.118.0>
+Start Call: Logger.Backends.Supervisor.start_link([{LoggerFileBackend, :general_log}])
+Restart: :permanent
+Shutdown: :infinity
+Type: :supervisor
+09:57:52.100 [info] Child Logger.Backends.Internal of Supervisor Logger.Supervisor started
+Pid: #PID<0.114.0>
+Start Call: Logger.Backends.Internal.start_link([])
+Restart: :permanent
+Shutdown: :infinity
+Type: :supervisor
+09:57:52.100 [info] Application logger started at :nonode@nohost
+09:57:53.462 [error] FATAL: Lexical is not compatible with Erlang/OTP 26.0.0
+
+Lexical is compatible with the following versions of Erlang/OTP:
+
+  >= 24.3.4
+  >= 25.0.0
+  >= 26.0.2
+  >= 27.0.0
+
+09:57:54.518 [info] Child {LoggerFileBackend, :general_log} of Supervisor Logger.Backends.Supervisor started
+Pid: #PID<0.119.0>
+Start Call: Logger.Backends.Watcher.start_link({{LoggerFileBackend, :general_log}, {LoggerFileBackend, :general_log}})
+Restart: :transient
+Shutdown: 5000
+Type: :worker
+09:57:54.518 [info] Child Logger.Backends.Supervisor of Supervisor Logger.Backends.Internal started
+Pid: #PID<0.118.0>
+Start Call: Logger.Backends.Supervisor.start_link([{LoggerFileBackend, :general_log}])
+Restart: :permanent
+Shutdown: :infinity
+Type: :supervisor
+09:57:54.518 [info] Child Logger.Backends.Internal of Supervisor Logger.Supervisor started
+Pid: #PID<0.114.0>
+Start Call: Logger.Backends.Internal.start_link([])
+Restart: :permanent
+Shutdown: :infinity
+Type: :supervisor
+09:57:54.518 [info] Application logger started at :nonode@nohost
+09:57:55.879 [error] FATAL: Lexical is not compatible with Erlang/OTP 26.0.0
+
+Lexical is compatible with the following versions of Erlang/OTP:
+
+  >= 24.3.4
+  >= 25.0.0
+  >= 26.0.2
+  >= 27.0.0
+
+09:57:57.385 [info] Child {LoggerFileBackend, :general_log} of Supervisor Logger.Backends.Supervisor started
+Pid: #PID<0.119.0>
+Start Call: Logger.Backends.Watcher.start_link({{LoggerFileBackend, :general_log}, {LoggerFileBackend, :general_log}})
+Restart: :transient
+Shutdown: 5000
+Type: :worker
+09:57:57.385 [info] Child Logger.Backends.Supervisor of Supervisor Logger.Backends.Internal started
+Pid: #PID<0.118.0>
+Start Call: Logger.Backends.Supervisor.start_link([{LoggerFileBackend, :general_log}])
+Restart: :permanent
+Shutdown: :infinity
+Type: :supervisor
+09:57:57.385 [info] Child Logger.Backends.Internal of Supervisor Logger.Supervisor started
+Pid: #PID<0.114.0>
+Start Call: Logger.Backends.Internal.start_link([])
+Restart: :permanent
+Shutdown: :infinity
+Type: :supervisor
+09:57:57.385 [info] Application logger started at :nonode@nohost
+09:57:58.822 [error] FATAL: Lexical is not compatible with Erlang/OTP 26.0.0
+
+Lexical is compatible with the following versions of Erlang/OTP:
+
+  >= 24.3.4
+  >= 25.0.0
+  >= 26.0.2
+  >= 27.0.0
+
+09:57:59.788 [info] Child {LoggerFileBackend, :general_log} of Supervisor Logger.Backends.Supervisor started
+Pid: #PID<0.119.0>
+Start Call: Logger.Backends.Watcher.start_link({{LoggerFileBackend, :general_log}, {LoggerFileBackend, :general_log}})
+Restart: :transient
+Shutdown: 5000
+Type: :worker
+09:57:59.788 [info] Child Logger.Backends.Supervisor of Supervisor Logger.Backends.Internal started
+Pid: #PID<0.118.0>
+Start Call: Logger.Backends.Supervisor.start_link([{LoggerFileBackend, :general_log}])
+Restart: :permanent
+Shutdown: :infinity
+Type: :supervisor
+09:57:59.788 [info] Child Logger.Backends.Internal of Supervisor Logger.Supervisor started
+Pid: #PID<0.114.0>
+Start Call: Logger.Backends.Internal.start_link([])
+Restart: :permanent
+Shutdown: :infinity
+Type: :supervisor
+09:57:59.788 [info] Application logger started at :nonode@nohost
+09:58:00.969 [error] FATAL: Lexical is not compatible with Erlang/OTP 26.0.0
+
+Lexical is compatible with the following versions of Erlang/OTP:
+
+  >= 24.3.4
+  >= 25.0.0
+  >= 26.0.2
+  >= 27.0.0
+
+09:58:01.865 [info] Child {LoggerFileBackend, :general_log} of Supervisor Logger.Backends.Supervisor started
+Pid: #PID<0.119.0>
+Start Call: Logger.Backends.Watcher.start_link({{LoggerFileBackend, :general_log}, {LoggerFileBackend, :general_log}})
+Restart: :transient
+Shutdown: 5000
+Type: :worker
+09:58:01.866 [info] Child Logger.Backends.Supervisor of Supervisor Logger.Backends.Internal started
+Pid: #PID<0.118.0>
+Start Call: Logger.Backends.Supervisor.start_link([{LoggerFileBackend, :general_log}])
+Restart: :permanent
+Shutdown: :infinity
+Type: :supervisor
+09:58:01.866 [info] Child Logger.Backends.Internal of Supervisor Logger.Supervisor started
+Pid: #PID<0.114.0>
+Start Call: Logger.Backends.Internal.start_link([])
+Restart: :permanent
+Shutdown: :infinity
+Type: :supervisor
+09:58:01.866 [info] Application logger started at :nonode@nohost
+09:58:03.194 [error] FATAL: Lexical is not compatible with Erlang/OTP 26.0.0
+
+Lexical is compatible with the following versions of Erlang/OTP:
+
+  >= 24.3.4
+  >= 25.0.0
+  >= 26.0.2
+  >= 27.0.0
+

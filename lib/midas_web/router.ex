@@ -68,6 +68,10 @@ defmodule MidasWeb.Router do
       on_mount: [{MidasWeb.UserAuth, :ensure_authenticated}] do
       live "/users/settings", UserSettingsLive, :edit
       live "/users/settings/confirm_email/:token", UserSettingsLive, :confirm_email
+
+      live "/finances", FinancesLive.Index, :index
+
+      live "/finances/money_sources", FinancesLive.MoneySources.Show, :show
     end
   end
 
