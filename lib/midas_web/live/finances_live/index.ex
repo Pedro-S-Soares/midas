@@ -10,7 +10,7 @@ defmodule MidasWeb.FinancesLive.Index do
   def render(assigns) do
     ~H"""
     <div>
-      <h1>Finances</h1>
+      <h1>Controle financeiro</h1>
     </div>
     """
   end
