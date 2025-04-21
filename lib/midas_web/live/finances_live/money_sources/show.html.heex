@@ -15,7 +15,7 @@
     </:col>
     <:col :let={money_source} label="Saldo Atual">
       <span class="font-mono">
-        {Number.Currency.number_to_currency(money_source.current_value, unit: "R$")}
+        {money_source.current_value}
       </span>
     </:col>
     <:col :let={money_source} label="Descrição">
@@ -38,10 +38,5 @@
         </.link>
       </div>
     </:action>
-    <:empty>
-      <div class="text-center py-4 text-gray-500">
-        Nenhuma conta cadastrada. Clique em "Nova Conta" para adicionar.
-      </div>
-    </:empty>
   </.table>
 </div>

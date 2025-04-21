@@ -1,4 +1,6 @@
 defmodule Midas.FinancesFixtures do
+  alias Midas.Factory
+
   @moduledoc """
   This module defines test helpers for creating
   entities via the `Midas.Finances` context.
@@ -8,14 +10,19 @@ defmodule Midas.FinancesFixtures do
   Generate a money_source.
   """
   def money_source_fixture(attrs \\ %{}) do
-    {:ok, money_source} =
+    user = Factory.insert(:user)
+
+    attrs =
       attrs
       |> Enum.into(%{
         current_value: "120.5",
         description: "some description",
         name: "some name"
       })
-      |> Midas.Finances.create_money_source()
+
+    {:ok, money_source} =
+      user
+      |> Midas.Finances.create_money_source(attrs)
 
     money_source
   end

@@ -1,9 +1,7 @@
 defmodule MidasWeb.FinancesLive.MoneySources.Show do
   use MidasWeb, :live_view
-  import Phoenix.LiveView.JS
 
   alias Midas.Finances
-  alias Midas.Finances.MoneySource
 
   @impl true
   def mount(_params, _session, socket) do
@@ -24,7 +22,7 @@ defmodule MidasWeb.FinancesLive.MoneySources.Show do
     if money_source.user_id == socket.assigns.current_user.id do
       {:ok, _} = Finances.delete_money_source(money_source)
 
-      money_sources = Finances.list_money_sources_by_user(socket.assigns.current_user.id)
+      money_sources = Finances.get_user_money_sources(socket.assigns.current_user)
       {:noreply, assign(socket, :money_sources, money_sources)}
     else
       {:noreply, put_flash(socket, :error, "Você não tem permissão para excluir esta conta.")}

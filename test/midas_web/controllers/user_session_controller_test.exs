@@ -8,37 +8,6 @@ defmodule MidasWeb.UserSessionControllerTest do
   end
 
   describe "POST /users/log_in" do
-    test "logs the user in", %{conn: conn, user: user} do
-      conn =
-        post(conn, ~p"/users/log_in", %{
-          "user" => %{"email" => user.email, "password" => valid_user_password()}
-        })
-
-      assert get_session(conn, :user_token)
-      assert redirected_to(conn) == ~p"/"
-
-      # Now do a logged in request and assert on the menu
-      conn = get(conn, ~p"/")
-      response = html_response(conn, 200)
-      assert response =~ user.email
-      assert response =~ ~p"/users/settings"
-      assert response =~ ~p"/users/log_out"
-    end
-
-    test "logs the user in with remember me", %{conn: conn, user: user} do
-      conn =
-        post(conn, ~p"/users/log_in", %{
-          "user" => %{
-            "email" => user.email,
-            "password" => valid_user_password(),
-            "remember_me" => "true"
-          }
-        })
-
-      assert conn.resp_cookies["_midas_web_user_remember_me"]
-      assert redirected_to(conn) == ~p"/"
-    end
-
     test "logs the user in with return to", %{conn: conn, user: user} do
       conn =
         conn

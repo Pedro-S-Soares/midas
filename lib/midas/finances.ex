@@ -40,22 +40,18 @@ defmodule Midas.Finances do
   def get_money_source!(id), do: Repo.get!(MoneySource, id)
 
   @doc """
-  Creates a money_source.
+  Creates a money_source with its user attached.
 
   ## Examples
 
-      iex> create_money_source(%{field: value})
+      iex> create_money_source(user_id, %{field: value})
       {:ok, %MoneySource{}}
 
-      iex> create_money_source(%{field: bad_value})
+      iex> create_money_source(user_id, %{field: bad_value})
       {:error, %Ecto.Changeset{}}
 
   """
-  def create_money_source(attrs \\ %{}) do
-    %MoneySource{}
-    |> MoneySource.changeset(attrs)
-    |> Repo.insert()
-  end
+  defdelegate create_money_source(user_id, attrs), to: Midas.Finances.MoneySources.Create
 
   @doc """
   Updates a money_source.

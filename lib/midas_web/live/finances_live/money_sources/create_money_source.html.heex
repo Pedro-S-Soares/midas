@@ -1,0 +1,24 @@
+<div>
+  <h1>Nova Conta</h1>
+  <.form for={@form} phx-submit="create_money_source">
+    <div class="flex flex-col gap-4">
+      <div class="flex flex-col gap-2">
+        <.input field={@form[:name]} placeholder="Nome da conta" autocomplete="off" />
+      </div>
+      <div class="flex flex-col gap-2">
+        <.input field={@form[:description]} placeholder="Descrição" autocomplete="off" />
+      </div>
+      <div class="flex flex-col gap-2">
+        <.input
+          field={@form[:current_value]}
+          type="number"
+          placeholder="Valor inicial"
+          autocomplete="off"
+        />
+      </div>
+      <div>
+        <.button type="submit">Criar conta</.button>
+      </div>
+    </div>
+  </.form>
+</div>

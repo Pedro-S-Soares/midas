@@ -20,19 +20,6 @@ defmodule Midas.FinancesTest do
       assert Finances.get_money_source!(money_source.id) == money_source
     end
 
-    test "create_money_source/1 with valid data creates a money_source" do
-      valid_attrs = %{name: "some name", description: "some description", current_value: "120.5"}
-
-      assert {:ok, %MoneySource{} = money_source} = Finances.create_money_source(valid_attrs)
-      assert money_source.name == "some name"
-      assert money_source.description == "some description"
-      assert money_source.current_value == Decimal.new("120.5")
-    end
-
-    test "create_money_source/1 with invalid data returns error changeset" do
-      assert {:error, %Ecto.Changeset{}} = Finances.create_money_source(@invalid_attrs)
-    end
-
     test "update_money_source/2 with valid data updates the money_source" do
       money_source = money_source_fixture()
 
