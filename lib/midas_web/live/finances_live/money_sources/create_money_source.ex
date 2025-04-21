@@ -29,4 +29,14 @@ defmodule MidasWeb.FinancesLive.MoneySources.CreateMoneySource do
         {:noreply, assign(socket, form: to_form(changeset))}
     end
   end
+
+  @impl true
+  def handle_event("validate", %{"money_source" => params}, socket) do
+    changeset =
+      %MoneySource{}
+      |> Finances.change_money_source(params)
+      |> Map.put(:action, :validate)
+
+    {:noreply, assign(socket, form: to_form(changeset))}
+  end
 end

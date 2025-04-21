@@ -17,7 +17,9 @@ defmodule Midas.Finances.MoneySource do
   @doc false
   def changeset(money_source, attrs) do
     money_source
-    |> cast(attrs, [:current_value, :name, :description])
-    |> validate_required([:current_value, :name, :description])
+    |> cast(attrs, [:current_value, :name, :description, :user_id])
+    |> validate_required([:current_value, :name, :user_id])
+    |> validate_number(:current_value, message: "deve ser um valor numérico")
+    |> foreign_key_constraint(:user_id)
   end
 end
