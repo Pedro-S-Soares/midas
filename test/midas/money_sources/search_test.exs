@@ -61,4 +61,30 @@ defmodule Midas.MoneySources.SearchTest do
       assert result |> List.first() |> Map.get(:id) == money_source.id
     end
   end
+
+  describe "get_user_money_source/2" do
+    test "returns the user's money source" do
+      # ARRANGE
+      user = Factory.insert(:user)
+      money_source = Factory.insert(:money_source, user: user)
+
+      # ACT
+      result = Search.get_user_money_source(user, money_source.id)
+
+      # ASSERT
+      assert result |> Map.get(:id) == money_source.id
+    end
+
+    test "returns nil if the money source does not belong to the user" do
+      # ARRANGE
+      user = Factory.insert(:user)
+      other_user_money_source = Factory.insert(:money_source)
+
+      # ACT
+      result = Search.get_user_money_source(user, other_user_money_source.id)
+
+      # ASSERT
+      assert result == nil
+    end
+  end
 end

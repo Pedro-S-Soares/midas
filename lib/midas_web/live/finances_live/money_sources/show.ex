@@ -16,16 +16,19 @@ defmodule MidasWeb.FinancesLive.MoneySources.Show do
 
   @impl true
   def handle_event("delete", %{"id" => id}, socket) do
-    money_source = Finances.get_money_source!(id)
+    case Finances.soft_delete(socket.assigns.current_user.id, id) do
+      {:ok, _} ->
+        updated_money_sources = Finances.get_user_money_sources(socket.assigns.current_user)
 
-    # Verificar se a conta pertence ao usuário atual
-    if money_source.user_id == socket.assigns.current_user.id do
-      {:ok, _} = Finances.delete_money_source(money_source)
+        socket =
+          socket
+          |> put_flash(:info, "Conta excluída com sucesso")
+          |> assign(:money_sources, updated_money_sources)
 
-      money_sources = Finances.get_user_money_sources(socket.assigns.current_user)
-      {:noreply, assign(socket, :money_sources, money_sources)}
-    else
-      {:noreply, put_flash(socket, :error, "Você não tem permissão para excluir esta conta.")}
+        {:noreply, socket}
+
+      {:error, _} ->
+        {:noreply, put_flash(socket, :error, "Erro ao excluir conta.")}
     end
   end
 end

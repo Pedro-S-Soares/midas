@@ -23,4 +23,25 @@ defmodule Midas.Finances.MoneySources.Update do
         |> Repo.update()
     end
   end
+
+  def update(user_id, money_source_id, params) do
+    money_source = Repo.get(MoneySource, money_source_id)
+    user = Repo.get(User, user_id)
+
+    cond do
+      is_nil(money_source) ->
+        {:error, "Money source not found"}
+
+      is_nil(user) ->
+        {:error, "User not found"}
+
+      money_source.user_id != user_id ->
+        {:error, "User is not the owner of the money source"}
+
+      true ->
+        money_source
+        |> MoneySource.changeset(params)
+        |> Repo.update()
+    end
+  end
 end

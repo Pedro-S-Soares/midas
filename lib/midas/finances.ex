@@ -39,6 +39,8 @@ defmodule Midas.Finances do
   """
   def get_money_source!(id), do: Repo.get!(MoneySource, id)
 
+  defdelegate get_user_money_source(user, id), to: Midas.Finances.MoneySources.Search
+
   @doc """
   Creates a money_source with its user attached.
 
@@ -70,6 +72,9 @@ defmodule Midas.Finances do
     |> MoneySource.changeset(attrs)
     |> Repo.update()
   end
+
+  defdelegate update(user_id, money_source_id, attrs),
+    to: Midas.Finances.MoneySources.Update
 
   @doc """
   Deletes a money_source.

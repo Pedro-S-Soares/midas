@@ -24,7 +24,7 @@
     <:action :let={money_source}>
       <div class="flex items-center gap-2">
         <.link
-          navigate={~p"/finances/money_sources/#{money_source}/edit"}
+          navigate={~p"/finances/money_sources/#{money_source.id}"}
           class="text-blue-500 hover:text-blue-700"
         >
           Editar
