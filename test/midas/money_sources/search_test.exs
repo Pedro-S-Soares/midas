@@ -44,5 +44,21 @@ defmodule Midas.MoneySources.SearchTest do
       assert length(result) == 1
       assert result |> List.first() |> Map.get(:id) == user_money_source.id
     end
+
+    test "returns only the user's money sources that are not deleted" do
+      # ARRANGE
+      user = Factory.insert(:user)
+      money_source = Factory.insert(:money_source, user: user)
+
+      _deleted_money_source =
+        Factory.insert(:money_source, user: user, deleted_at: DateTime.utc_now())
+
+      # ACT
+      result = Search.get_user_money_sources(user)
+
+      # ASSERT
+      assert length(result) == 1
+      assert result |> List.first() |> Map.get(:id) == money_source.id
+    end
   end
 end

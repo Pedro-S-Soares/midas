@@ -87,7 +87,7 @@ defmodule Midas.Finances do
     Repo.delete(money_source)
   end
 
-  defdelegate soft_delete_money_source(user_id, money_source_id),
+  defdelegate soft_delete(user_id, money_source_id),
     to: Midas.Finances.MoneySources.Update
 
   @doc """
