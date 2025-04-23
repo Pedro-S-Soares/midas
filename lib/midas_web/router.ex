@@ -74,6 +74,9 @@ defmodule MidasWeb.Router do
       live "/finances/money_sources", FinancesLive.MoneySources.Show, :show
       live "/finances/money_sources/new", FinancesLive.MoneySources.Form, :new
       live "/finances/money_sources/:id", FinancesLive.MoneySources.Form, :edit
+
+      live "/finances/new", FinancesLive.Form, :new
+      live "/finances/:id", FinancesLive.Form, :edit
     end
   end
 

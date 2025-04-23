@@ -23,6 +23,8 @@ defmodule Midas.Finances do
 
   defdelegate get_user_money_sources(user), to: Midas.Finances.MoneySources.Search
 
+  defdelegate get_user_finances(user_id), to: Midas.Finances.Search
+
   @doc """
   Gets a single money_source.
 

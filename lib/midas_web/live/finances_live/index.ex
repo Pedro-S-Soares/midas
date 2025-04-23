@@ -3,15 +3,12 @@ defmodule MidasWeb.FinancesLive.Index do
 
   @impl true
   def mount(_params, _session, socket) do
-    {:ok, socket}
-  end
+    finances = Midas.Finances.get_user_finances(socket.assigns.current_user.id)
 
-  @impl true
-  def render(assigns) do
-    ~H"""
-    <div>
-      <h1>Controle financeiro</h1>
-    </div>
-    """
+    socket =
+      socket
+      |> assign(:finances, finances)
+
+    {:ok, socket}
   end
 end

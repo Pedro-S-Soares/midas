@@ -11,14 +11,14 @@ defmodule Midas.Finances.Finance do
     field :amount, :decimal
 
     belongs_to :money_source, Midas.Finances.MoneySource
-
+    belongs_to :user, Midas.Accounts.User
     timestamps(type: :utc_datetime)
   end
 
   @doc false
   def changeset(finance, attrs) do
     finance
-    |> cast(attrs, [:title, :description, :due_date, :amount, :money_source_id])
-    |> validate_required([:title, :due_date, :amount, :money_source_id])
+    |> cast(attrs, [:title, :description, :due_date, :amount, :money_source_id, :user_id])
+    |> validate_required([:title, :due_date, :amount, :money_source_id, :user_id])
   end
 end

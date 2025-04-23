@@ -17,4 +17,14 @@ defmodule Midas.Factory do
       current_value: "100.00"
     }
   end
+
+  def finance_factory do
+    %Midas.Finances.Finance{
+      title: Faker.Lorem.sentence(),
+      description: Faker.Lorem.sentence(),
+      amount: "100.00",
+      money_source: insert(:money_source),
+      user: insert(:user)
+    }
+  end
 end

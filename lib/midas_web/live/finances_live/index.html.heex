@@ -1,0 +1,39 @@
+<div class="space-y-6">
+  <div class="flex justify-between items-center">
+    <h1 class="text-2xl font-bold">Movimentações</h1>
+    <.link
+      navigate={~p"/finances/new"}
+      class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md"
+    >
+      Nova Movimentação
+    </.link>
+  </div>
+
+  <.table id="finances" rows={@finances}>
+    <:col :let={finance} label="Nome">
+      {finance.title}
+    </:col>
+    <:col :let={finance} label="Valor">
+      <span class="font-mono">
+        {finance.amount}
+      </span>
+    </:col>
+    <:col :let={finance} label="Descrição">
+      {finance.description}
+    </:col>
+    <:action :let={finance}>
+      <div class="flex items-center gap-2">
+        <.link navigate={~p"/finances/#{finance.id}"} class="text-blue-500 hover:text-blue-700">
+          Editar
+        </.link>
+        <.link
+          phx-click={JS.push("delete", value: %{id: finance.id})}
+          data-confirm="Tem certeza que deseja excluir esta movimentação?"
+          class="text-red-500 hover:text-red-700"
+        >
+          Excluir
+        </.link>
+      </div>
+    </:action>
+  </.table>
+</div>

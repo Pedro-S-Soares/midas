@@ -11,6 +11,7 @@ defmodule Midas.Accounts.User do
     field :confirmed_at, :utc_datetime
 
     has_many :money_sources, Midas.Finances.MoneySource
+    has_many :finances, Midas.Finances.Finance
 
     timestamps(type: :utc_datetime)
   end
