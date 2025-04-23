@@ -26,4 +26,21 @@ defmodule Midas.FinancesFixtures do
 
     money_source
   end
+
+  @doc """
+  Generate a finance.
+  """
+  def finance_fixture(attrs \\ %{}) do
+    {:ok, finance} =
+      attrs
+      |> Enum.into(%{
+        amount: "120.5",
+        description: "some description",
+        due_date: ~N[2025-04-22 00:50:00],
+        title: "some title"
+      })
+      |> Midas.Finances.create_finance()
+
+    finance
+  end
 end

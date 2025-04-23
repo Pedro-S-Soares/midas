@@ -12,6 +12,8 @@ defmodule Midas.Finances.MoneySource do
 
     belongs_to :user, Midas.Accounts.User
 
+    has_many :finances, Midas.Finances.Finance
+
     timestamps(type: :utc_datetime)
   end
 
