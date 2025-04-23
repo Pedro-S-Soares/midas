@@ -141,23 +141,7 @@ defmodule Midas.Finances do
   """
   def get_finance!(id), do: Repo.get!(Finance, id)
 
-  @doc """
-  Creates a finance.
-
-  ## Examples
-
-      iex> create_finance(%{field: value})
-      {:ok, %Finance{}}
-
-      iex> create_finance(%{field: bad_value})
-      {:error, %Ecto.Changeset{}}
-
-  """
-  def create_finance(attrs \\ %{}) do
-    %Finance{}
-    |> Finance.changeset(attrs)
-    |> Repo.insert()
-  end
+  defdelegate create_finance(user_id, money_source_id, attrs), to: Midas.Finances.Create
 
   @doc """
   Updates a finance.
