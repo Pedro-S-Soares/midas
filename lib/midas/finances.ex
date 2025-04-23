@@ -143,6 +143,8 @@ defmodule Midas.Finances do
 
   defdelegate create_finance(user_id, money_source_id, attrs), to: Midas.Finances.Create
 
+  defdelegate delete_finance(user_id, finance_id), to: Midas.Finances.Delete
+
   @doc """
   Updates a finance.
 
@@ -159,22 +161,6 @@ defmodule Midas.Finances do
     finance
     |> Finance.changeset(attrs)
     |> Repo.update()
-  end
-
-  @doc """
-  Deletes a finance.
-
-  ## Examples
-
-      iex> delete_finance(finance)
-      {:ok, %Finance{}}
-
-      iex> delete_finance(finance)
-      {:error, %Ecto.Changeset{}}
-
-  """
-  def delete_finance(%Finance{} = finance) do
-    Repo.delete(finance)
   end
 
   @doc """
