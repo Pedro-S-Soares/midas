@@ -35,7 +35,7 @@ defmodule Midas.Finances.Create do
     |> Multi.update(
       :money_source,
       Midas.Finances.MoneySource.changeset(money_source, %{
-        current_value: Decimal.add(money_source.current_value, params.amount)
+        current_value: Decimal.add(money_source.current_value, params["amount"])
       })
     )
     |> Repo.transaction()

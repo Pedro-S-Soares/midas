@@ -52,10 +52,10 @@ defmodule Midas.Finances.CreateTest do
     money_source_id = money_source.id
 
     params = %{
-      amount: Decimal.new("100"),
-      title: "Test",
-      description: "Test description",
-      due_date: ~U[2025-01-01 00:00:00Z]
+      "amount" => "100",
+      "title" => "Test",
+      "description" => "Test description",
+      "due_date" => ~U[2025-01-01 00:00:00Z]
     }
 
     # ACT
@@ -78,10 +78,10 @@ defmodule Midas.Finances.CreateTest do
     money_source_id = money_source.id
 
     params = %{
-      amount: Decimal.new("-100"),
-      title: "Test",
-      description: "Test description",
-      due_date: ~U[2025-01-01 00:00:00Z]
+      "amount" => "-100",
+      "title" => "Test",
+      "description" => "Test description",
+      "due_date" => ~U[2025-01-01 00:00:00Z]
     }
 
     # ACT

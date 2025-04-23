@@ -1,1 +1,74 @@
-<div>Criar</div>
+<div>
+  <h1>Nova movimentação</h1>
+  <.form for={@form} phx-submit="save_finance" phx-change="validate">
+    <div class="flex flex-col gap-4">
+      <div class="flex flex-col gap-2">
+        <.input
+          field={@form[:title]}
+          placeholder="Título"
+          autocomplete="off"
+          phx-debounce="blur"
+        />
+      </div>
+      <div class="flex flex-col gap-2">
+        <.input
+          field={@form[:description]}
+          placeholder="Descrição"
+          autocomplete="off"
+          phx-debounce="blur"
+        />
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <label for="money_source_id" class="text-sm font-medium text-gray-700">Conta</label>
+        <select
+          id="money_source_id"
+          name="finance[money_source_id]"
+          class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md"
+          phx-change="select_money_source"
+        >
+          <option value="" disabled selected={is_nil(@selected_money_source_id)}>
+            Selecione uma conta
+          </option>
+          <%= for money_source <- @money_sources do %>
+            <option
+              value={money_source.id}
+              selected={@selected_money_source_id == money_source.id}
+            >
+              {money_source.name} - Saldo atual: {money_source.current_value}
+            </option>
+          <% end %>
+        </select>
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <.input
+          field={@form[:amount]}
+          type="number"
+          placeholder="Valor"
+          autocomplete="off"
+          phx-debounce="blur"
+        />
+      </div>
+      <div class="flex flex-col gap-2">
+        <.input
+          field={@form[:due_date]}
+          type="datetime-local"
+          placeholder="Data e Hora"
+          autocomplete="off"
+          phx-debounce="blur"
+        />
+      </div>
+
+      <div>
+        <.button
+          type="submit"
+          phx-disable-with="Criando..."
+          disabled={is_nil(@selected_money_source_id)}
+        >
+          Criar movimentação
+        </.button>
+      </div>
+    </div>
+  </.form>
+</div>
