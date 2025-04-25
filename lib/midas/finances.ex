@@ -139,7 +139,7 @@ defmodule Midas.Finances do
       ** (Ecto.NoResultsError)
 
   """
-  def get_finance!(id), do: Repo.get!(Finance, id)
+  defdelegate get_user_finance(user_id, finance_id), to: Midas.Finances.Search
 
   defdelegate create_finance(user_id, money_source_id, attrs), to: Midas.Finances.Create
 
@@ -157,11 +157,7 @@ defmodule Midas.Finances do
       {:error, %Ecto.Changeset{}}
 
   """
-  def update_finance(%Finance{} = finance, attrs) do
-    finance
-    |> Finance.changeset(attrs)
-    |> Repo.update()
-  end
+  defdelegate update_finance(user_id, finance_id, attrs), to: Midas.Finances.Update
 
   @doc """
   Returns an `%Ecto.Changeset{}` for tracking finance changes.
