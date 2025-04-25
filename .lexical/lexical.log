@@ -5861,3 +5861,483 @@ Type: :worker
 13:26:22.508 [info] Compiled midas in 191 ms
 13:26:22.569 [warning] Task Elixir.LXical.Server.Provider.Handlers.CodeLens.handle/2 ran for  0.19 ms. Result :success
 13:26:41.088 [warning] Task Elixir.LXical.Server.Provider.Handlers.CodeLens.handle/2 ran for  0.268 ms. Result :success
+14:36:09.264 [error] stdio received :eof, server will stop.
+14:36:09.275 [error] Child LXical.Server.Transport.StdIO of Supervisor LXical.Server.Supervisor terminated
+** (exit) normal
+Pid: #PID<0.1576.0>
+Start Call: LXical.Server.Transport.StdIO.start_link(:standard_io, &LXical.Server.protocol_message/1)
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+14:36:09.281 [info] Child LXical.Server.Transport.StdIO of Supervisor LXical.Server.Supervisor started
+Pid: #PID<0.2249.0>
+Start Call: LXical.Server.Transport.StdIO.start_link(:standard_io, &LXical.Server.protocol_message/1)
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+13:09:44.417 [info] Child {LoggerFileBackend, :general_log} of Supervisor Logger.Backends.Supervisor started
+Pid: #PID<0.120.0>
+Start Call: Logger.Backends.Watcher.start_link({{LoggerFileBackend, :general_log}, {LoggerFileBackend, :general_log}})
+Restart: :transient
+Shutdown: 5000
+Type: :worker
+13:09:44.417 [info] Child Logger.Backends.Supervisor of Supervisor Logger.Backends.Internal started
+Pid: #PID<0.119.0>
+Start Call: Logger.Backends.Supervisor.start_link([{LoggerFileBackend, :general_log}])
+Restart: :permanent
+Shutdown: :infinity
+Type: :supervisor
+13:09:44.417 [info] Child Logger.Backends.Internal of Supervisor Logger.Supervisor started
+Pid: #PID<0.115.0>
+Start Call: Logger.Backends.Internal.start_link([])
+Restart: :permanent
+Shutdown: :infinity
+Type: :supervisor
+13:09:44.417 [info] Application logger started at :nonode@nohost
+13:09:46.276 [info] Child :ttb_autostart of Supervisor :runtime_tools_sup started
+Pid: #PID<0.1550.0>
+Start Call: :ttb_autostart.start_link()
+Restart: :temporary
+Shutdown: 3000
+Type: :worker
+13:09:46.276 [info] Application runtime_tools started at :nonode@nohost
+13:09:46.279 [info] Application erts started at :nonode@nohost
+13:09:46.279 [info] Application lx_lexical_shared started at :nonode@nohost
+13:09:46.279 [info] Application lx_lexical_test started at :nonode@nohost
+13:09:46.283 [info] Child LXSnowflake.Generator of Supervisor #PID<0.1557.0> (Supervisor.Default) started
+Pid: #PID<0.1558.0>
+Start Call: LXSnowflake.Generator.start_link(1704070800000, 1)
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+13:09:46.283 [info] Application lx_snowflake started at :nonode@nohost
+13:09:46.283 [info] Application lx_sourceror started at :nonode@nohost
+13:09:46.283 [info] Application lx_common started at :nonode@nohost
+13:09:46.283 [info] Application lx_elixir_sense started at :nonode@nohost
+13:09:46.283 [info] Application jason started at :nonode@nohost
+13:09:46.283 [info] Application logger_file_backend started at :nonode@nohost
+13:09:46.283 [info] Application lx_path_glob started at :nonode@nohost
+13:09:46.283 [info] Application lx_proto started at :nonode@nohost
+13:09:46.284 [info] Application lx_protocol started at :nonode@nohost
+13:09:46.314 [info] Child LXical.Document.Store of Supervisor LXical.Server.Supervisor started
+Pid: #PID<0.1571.0>
+Start Call: LXical.Document.Store.start_link([derive: [analysis: &LXical.Ast.analyze/1]])
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+13:09:46.321 [info] Child LXical.Server of Supervisor LXical.Server.Supervisor started
+Pid: #PID<0.1572.0>
+Start Call: LXical.Server.start_link([])
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+13:09:46.321 [info] Child LXical.Server.ProjectSupervisor of Supervisor LXical.Server.Supervisor started
+Pid: #PID<0.1573.0>
+Start Call: DynamicSupervisor.start_link([name: LXical.Server.ProjectSupervisor, strategy: :one_for_one])
+Restart: :permanent
+Shutdown: :infinity
+Type: :supervisor
+13:09:46.321 [info] Child LXical.Server.TaskQueue.State.TaskSupervisor of Supervisor LXical.Server.Supervisor started
+Pid: #PID<0.1574.0>
+Start Call: Task.Supervisor.start_link([name: LXical.Server.TaskQueue.State.TaskSupervisor])
+Restart: :permanent
+Shutdown: :infinity
+Type: :supervisor
+13:09:46.321 [info] Child LXical.Server.TaskQueue of Supervisor LXical.Server.Supervisor started
+Pid: #PID<0.1575.0>
+Start Call: LXical.Server.TaskQueue.start_link([])
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+13:09:46.321 [info] Child LXical.Server.Transport.StdIO of Supervisor LXical.Server.Supervisor started
+Pid: #PID<0.1576.0>
+Start Call: LXical.Server.Transport.StdIO.start_link(:standard_io, &LXical.Server.protocol_message/1)
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+13:09:46.322 [info] Application lx_server started at :nonode@nohost
+13:09:46.363 [info] Starting project at uri file:///home/pedro/projects/personal/midas
+13:09:46.402 [info] Child {LXical.Server.Project.Progress, "midas"} of Supervisor :"midas::supervisor" started
+Pid: #PID<0.1578.0>
+Start Call: LXical.Server.Project.Progress.start_link(%{__struct__: LXical.Project, entropy: 27445, project_module: nil, mix_exs_uri: "file:///home/pedro/projects/personal/midas/mix.exs", mix_project?: true, root_uri: "file:///home/pedro/projects/personal/midas", env_variables: %{}, mix_env: nil, mix_target: nil})
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+13:09:46.417 [info] Child {LXical.RemoteControl.ProjectNodeSupervisor, "midas"} of Supervisor :"midas::supervisor" started
+Pid: #PID<0.1579.0>
+Start Call: LXical.RemoteControl.ProjectNodeSupervisor.start_link(%{__struct__: LXical.Project, entropy: 27445, project_module: nil, mix_exs_uri: "file:///home/pedro/projects/personal/midas/mix.exs", mix_project?: true, root_uri: "file:///home/pedro/projects/personal/midas", env_variables: %{}, mix_env: nil, mix_target: nil})
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+13:09:46.448 [info] Child :erl_epmd of Supervisor :net_sup started
+Pid: #PID<0.1582.0>
+Start Call: :erl_epmd.start_link()
+Restart: :permanent
+Shutdown: 2000
+Type: :worker
+13:09:46.453 [info] Child :auth of Supervisor :net_sup started
+Pid: #PID<0.1583.0>
+Start Call: :auth.start_link()
+Restart: :permanent
+Shutdown: 2000
+Type: :worker
+13:09:46.464 [info] Child :net_kernel of Supervisor :net_sup started
+Pid: #PID<0.1584.0>
+Start Call: :net_kernel.start_link(%{name: :"manager-midas-27445@127.0.0.1", supervisor: :net_sup_dynamic, name_domain: :longnames, clean_halt: false})
+Restart: :permanent
+Shutdown: 2000
+Type: :worker
+13:09:46.464 [info] Child :net_sup_dynamic of Supervisor :kernel_sup started
+Pid: #PID<0.1581.0>
+Start Call: :erl_distribution.start_link(%{name: :"manager-midas-27445@127.0.0.1", supervisor: :net_sup_dynamic, name_domain: :longnames, clean_halt: false})
+Restart: :permanent
+Shutdown: 1000
+Type: :supervisor
+13:09:47.863 [info] Child {LXical.Server.Project.Node, "midas"} of Supervisor :"midas::supervisor" started
+Pid: #PID<0.1580.0>
+Start Call: LXical.Server.Project.Node.start_link(%{__struct__: LXical.Project, entropy: 27445, project_module: nil, mix_exs_uri: "file:///home/pedro/projects/personal/midas/mix.exs", mix_project?: true, root_uri: "file:///home/pedro/projects/personal/midas", env_variables: %{}, mix_env: nil, mix_target: nil})
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+13:09:47.869 [info] Child {LXical.Server.Project.Diagnostics, "midas"} of Supervisor :"midas::supervisor" started
+Pid: #PID<0.1592.0>
+Start Call: LXical.Server.Project.Diagnostics.start_link(%{__struct__: LXical.Project, entropy: 27445, project_module: nil, mix_exs_uri: "file:///home/pedro/projects/personal/midas/mix.exs", mix_project?: true, root_uri: "file:///home/pedro/projects/personal/midas", env_variables: %{}, mix_env: nil, mix_target: nil})
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+13:09:47.877 [info] Child {LXical.Server.Project.Intelligence, "midas"} of Supervisor :"midas::supervisor" started
+Pid: #PID<0.1593.0>
+Start Call: LXical.Server.Project.Intelligence.start_link(%{__struct__: LXical.Project, entropy: 27445, project_module: nil, mix_exs_uri: "file:///home/pedro/projects/personal/midas/mix.exs", mix_project?: true, root_uri: "file:///home/pedro/projects/personal/midas", env_variables: %{}, mix_env: nil, mix_target: nil})
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+13:09:47.879 [info] Child LXical.Server.Project.SearchListener of Supervisor :"midas::supervisor" started
+Pid: #PID<0.1594.0>
+Start Call: LXical.Server.Project.SearchListener.start_link(%{__struct__: LXical.Project, entropy: 27445, project_module: nil, mix_exs_uri: "file:///home/pedro/projects/personal/midas/mix.exs", mix_project?: true, root_uri: "file:///home/pedro/projects/personal/midas", env_variables: %{}, mix_env: nil, mix_target: nil})
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+13:09:47.882 [info] Lexical Initialized
+13:09:47.882 [info] opened file:///home/pedro/projects/personal/midas/lib/midas_web/live/finances_live/index.ex
+13:09:48.059 [warning] Task Elixir.LXical.Server.Provider.Handlers.DocumentSymbols.handle/2 ran for  172 ms. Result :success
+13:09:51.132 [info] Compiled midas in 3.2 seconds
+13:10:00.260 [warning] Task Elixir.LXical.Server.Provider.Handlers.CodeLens.handle/2 ran for  6 ms. Result :success
+13:10:00.375 [warning] Task Elixir.LXical.Server.Provider.Handlers.DocumentSymbols.handle/2 ran for  122 ms. Result :success
+13:10:00.667 [warning] Task Elixir.LXical.Server.Provider.Handlers.CodeLens.handle/2 ran for  0.341 ms. Result :success
+13:13:16.653 [warning] Task Elixir.LXical.Server.Provider.Handlers.CodeLens.handle/2 ran for  0.544 ms. Result :success
+13:13:16.816 [info] opened file:///home/pedro/projects/personal/midas/lib/midas/finances.ex
+13:13:16.909 [warning] Task Elixir.LXical.Server.Provider.Handlers.DocumentSymbols.handle/2 ran for  92 ms. Result :success
+13:13:17.344 [info] opened file:///home/pedro/projects/personal/midas/lib/midas/finances/delete.ex
+13:13:17.345 [warning] Task Elixir.LXical.Server.Provider.Handlers.DocumentSymbols.handle/2 ran for  0.079 ms. Result :canceled
+13:13:17.345 [error] Child :undefined of Supervisor LXical.Server.TaskQueue.State.TaskSupervisor terminated
+** (exit) :canceled
+Pid: #PID<0.1601.0>
+Start Call: Task.Supervised.start_link/?
+Restart: :temporary
+Shutdown: 5000
+Type: :worker
+13:13:17.559 [info] opened file:///home/pedro/projects/personal/midas/test/midas/finances/delete_test.exs
+13:13:17.559 [warning] Task Elixir.LXical.Server.Provider.Handlers.DocumentSymbols.handle/2 ran for  0.114 ms. Result :canceled
+13:13:17.560 [error] Child :undefined of Supervisor LXical.Server.TaskQueue.State.TaskSupervisor terminated
+** (exit) :canceled
+Pid: #PID<0.1602.0>
+Start Call: Task.Supervised.start_link/?
+Restart: :temporary
+Shutdown: 5000
+Type: :worker
+13:13:17.750 [info] opened file:///home/pedro/projects/personal/midas/lib/midas/finances/money_source.ex
+13:13:17.751 [info] opened file:///home/pedro/projects/personal/midas/lib/midas/finances/create.ex
+13:13:17.777 [info] opened file:///home/pedro/projects/personal/midas/lib/midas_web/live/finances_live/form.ex
+13:13:17.837 [warning] Task Elixir.LXical.Server.Provider.Handlers.DocumentSymbols.handle/2 ran for  60 ms. Result :success
+13:13:18.048 [info] opened file:///home/pedro/projects/personal/midas/test/midas/finances/create_test.exs
+13:13:18.050 [warning] Task Elixir.LXical.Server.Provider.Handlers.DocumentSymbols.handle/2 ran for  1 ms. Result :canceled
+13:13:18.050 [error] Child :undefined of Supervisor LXical.Server.TaskQueue.State.TaskSupervisor terminated
+** (exit) :canceled
+Pid: #PID<0.1604.0>
+Start Call: Task.Supervised.start_link/?
+Restart: :temporary
+Shutdown: 5000
+Type: :worker
+13:13:27.801 [info] opened file:///home/pedro/projects/personal/midas/lib/midas_web/live/finances_live/money_sources/form.ex
+13:13:27.860 [warning] Task Elixir.LXical.Server.Provider.Handlers.DocumentSymbols.handle/2 ran for  58 ms. Result :success
+13:13:28.116 [warning] Task Elixir.LXical.Server.Provider.Handlers.DocumentSymbols.handle/2 ran for  48 ms. Result :success
+13:13:28.180 [warning] Task Elixir.LXical.Server.Provider.Handlers.CodeLens.handle/2 ran for  0.182 ms. Result :success
+13:13:32.801 [warning] Task Elixir.LXical.Server.Provider.Handlers.DocumentSymbols.handle/2 ran for  55 ms. Result :success
+13:13:32.831 [warning] Task Elixir.LXical.Server.Provider.Handlers.CodeLens.handle/2 ran for  0.175 ms. Result :success
+13:13:36.179 [info] Resolved entity: {:call, Midas.Finances, :get_user_money_source, 2}
+13:13:36.209 [warning] Task Elixir.LXical.Server.Provider.Handlers.Hover.handle/2 ran for  62 ms. Result :success
+13:13:36.818 [info] Resolved entity: {:call, MidasWeb.FinancesLive.MoneySources.Form, :assign, 2}
+13:13:36.825 [warning] Could not resolve hover request, got: :error
+13:13:36.825 [warning] Task Elixir.LXical.Server.Provider.Handlers.Hover.handle/2 ran for  9 ms. Result :success
+13:13:41.218 [warning] Task Elixir.LXical.Server.Provider.Handlers.CodeLens.handle/2 ran for  0.234 ms. Result :success
+13:13:41.271 [warning] Task Elixir.LXical.Server.Provider.Handlers.DocumentSymbols.handle/2 ran for  50 ms. Result :success
+13:13:41.393 [warning] Task Elixir.LXical.Server.Provider.Handlers.DocumentSymbols.handle/2 ran for  46 ms. Result :success
+13:13:43.790 [warning] Task Elixir.LXical.Server.Provider.Handlers.CodeLens.handle/2 ran for  0.247 ms. Result :success
+13:13:43.843 [warning] Task Elixir.LXical.Server.Provider.Handlers.DocumentSymbols.handle/2 ran for  49 ms. Result :success
+13:13:44.155 [warning] Task Elixir.LXical.Server.Provider.Handlers.CodeLens.handle/2 ran for  0.279 ms. Result :success
+13:13:44.194 [warning] Task Elixir.LXical.Server.Provider.Handlers.DocumentSymbols.handle/2 ran for  36 ms. Result :success
+13:13:44.295 [warning] Task Elixir.LXical.Server.Provider.Handlers.DocumentSymbols.handle/2 ran for  39 ms. Result :success
+13:13:44.803 [info] Completion for LxPos<<18, 15>>
+13:13:44.949 [warning] ** (ArgumentError) could not call Module.put_attribute/3 because the module MidasWeb.FinancesLive.MoneySources.Form is already compiled
+    (elixir 1.18.1) lib/module.ex:2398: Module.assert_not_readonly!/2
+    (elixir 1.18.1) lib/module.ex:2079: Module.__put_attribute__/5
+    (gettext 0.26.2) lib/gettext.ex:625: Gettext."MACRO-__using__"/2
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/normalized/macro/env.ex:68: anonymous fn/5 in LXElixirSense.Core.Normalized.Macro.Env.wrap_expansion/7
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:1940: LXElixirSense.Core.Compiler.expand_macro_callback/7
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:28: LXElixirSense.Core.Compiler.expand/3
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:2202: LXElixirSense.Core.Compiler.expand_block/5
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:113: LXElixirSense.Core.Compiler.do_expand/3
+
+13:13:44.958 [warning] ** (ArgumentError) could not call Module.get_attribute/2 because the module MidasWeb.FinancesLive.MoneySources.Form is already compiled. Use the Module.__info__/1 callback or Code.fetch_docs/1 instead
+    (elixir 1.18.1) lib/module.ex:2383: Module.assert_not_compiled!/3
+    (elixir 1.18.1) lib/module.ex:1984: Module.get_attribute/7
+    (phoenix 1.7.21) lib/phoenix/verified_routes.ex:879: Phoenix.VerifiedRoutes.attr!/2
+    (phoenix 1.7.21) lib/phoenix/verified_routes.ex:233: Phoenix.VerifiedRoutes."MACRO-sigil_p"/3
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/normalized/macro/env.ex:68: anonymous fn/5 in LXElixirSense.Core.Normalized.Macro.Env.wrap_expansion/7
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:1940: LXElixirSense.Core.Compiler.expand_macro_callback/7
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:28: LXElixirSense.Core.Compiler.expand/3
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:2620: LXElixirSense.Core.Compiler.expand_arg/3
+
+13:13:44.963 [warning] ** (ArgumentError) could not call Module.get_attribute/2 because the module MidasWeb.FinancesLive.MoneySources.Form is already compiled. Use the Module.__info__/1 callback or Code.fetch_docs/1 instead
+    (elixir 1.18.1) lib/module.ex:2383: Module.assert_not_compiled!/3
+    (elixir 1.18.1) lib/module.ex:1984: Module.get_attribute/7
+    (phoenix 1.7.21) lib/phoenix/verified_routes.ex:879: Phoenix.VerifiedRoutes.attr!/2
+    (phoenix 1.7.21) lib/phoenix/verified_routes.ex:233: Phoenix.VerifiedRoutes."MACRO-sigil_p"/3
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/normalized/macro/env.ex:68: anonymous fn/5 in LXElixirSense.Core.Normalized.Macro.Env.wrap_expansion/7
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:1940: LXElixirSense.Core.Compiler.expand_macro_callback/7
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:28: LXElixirSense.Core.Compiler.expand/3
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:2620: LXElixirSense.Core.Compiler.expand_arg/3
+
+13:13:44.963 [warning] ** (ArgumentError) could not call Module.defines?/2 because the module MidasWeb.FinancesLive.MoneySources.Form is already compiled. Use Kernel.function_exported?/3 and Kernel.macro_exported?/3 to check for public functions and macros instead
+    (elixir 1.18.1) lib/module.ex:2383: Module.assert_not_compiled!/3
+    (elixir 1.18.1) lib/module.ex:1197: Module.defines?/2
+    (phoenix_live_view 1.0.10) lib/phoenix_live_view/renderer.ex:7: Phoenix.LiveView.Renderer."MACRO-__before_compile__"/2
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/normalized/macro/env.ex:68: anonymous fn/5 in LXElixirSense.Core.Normalized.Macro.Env.wrap_expansion/7
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:1940: LXElixirSense.Core.Compiler.expand_macro_callback/7
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:28: LXElixirSense.Core.Compiler.expand/3
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:2202: LXElixirSense.Core.Compiler.expand_block/5
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:113: LXElixirSense.Core.Compiler.do_expand/3
+
+13:13:44.964 [warning] ** (ArgumentError) could not call Module.get_attribute/2 because the module MidasWeb.FinancesLive.MoneySources.Form is already compiled. Use the Module.__info__/1 callback or Code.fetch_docs/1 instead
+    (elixir 1.18.1) lib/module.ex:2383: Module.assert_not_compiled!/3
+    (elixir 1.18.1) lib/module.ex:1984: Module.get_attribute/7
+    (phoenix_live_view 1.0.10) lib/phoenix_live_view.ex:393: Phoenix.LiveView."MACRO-__before_compile__"/2
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/normalized/macro/env.ex:68: anonymous fn/5 in LXElixirSense.Core.Normalized.Macro.Env.wrap_expansion/7
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:1940: LXElixirSense.Core.Compiler.expand_macro_callback/7
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:28: LXElixirSense.Core.Compiler.expand/3
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:2202: LXElixirSense.Core.Compiler.expand_block/5
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:113: LXElixirSense.Core.Compiler.do_expand/3
+
+13:13:44.970 [warning] ** (ArgumentError) could not call Module.put_attribute/3 because the module MidasWeb.FinancesLive.MoneySources.Form is already compiled
+    (elixir 1.18.1) lib/module.ex:2398: Module.assert_not_readonly!/2
+    (elixir 1.18.1) lib/module.ex:2079: Module.__put_attribute__/5
+    (gettext 0.26.2) lib/gettext.ex:625: Gettext."MACRO-__using__"/2
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/normalized/macro/env.ex:68: anonymous fn/5 in LXElixirSense.Core.Normalized.Macro.Env.wrap_expansion/7
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:1940: LXElixirSense.Core.Compiler.expand_macro_callback/7
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:28: LXElixirSense.Core.Compiler.expand/3
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:2202: LXElixirSense.Core.Compiler.expand_block/5
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:113: LXElixirSense.Core.Compiler.do_expand/3
+
+13:13:44.972 [warning] ** (ArgumentError) could not call Module.get_attribute/2 because the module MidasWeb.FinancesLive.MoneySources.Form is already compiled. Use the Module.__info__/1 callback or Code.fetch_docs/1 instead
+    (elixir 1.18.1) lib/module.ex:2383: Module.assert_not_compiled!/3
+    (elixir 1.18.1) lib/module.ex:1984: Module.get_attribute/7
+    (phoenix 1.7.21) lib/phoenix/verified_routes.ex:879: Phoenix.VerifiedRoutes.attr!/2
+    (phoenix 1.7.21) lib/phoenix/verified_routes.ex:233: Phoenix.VerifiedRoutes."MACRO-sigil_p"/3
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/normalized/macro/env.ex:68: anonymous fn/5 in LXElixirSense.Core.Normalized.Macro.Env.wrap_expansion/7
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:1940: LXElixirSense.Core.Compiler.expand_macro_callback/7
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:28: LXElixirSense.Core.Compiler.expand/3
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:2620: LXElixirSense.Core.Compiler.expand_arg/3
+
+13:13:44.977 [warning] ** (RuntimeError) expected @endpoint to be set. For dynamic endpoint resolution, use path/2 instead.
+
+for example:
+
+    path(conn_or_socket, ~p"/my-path")
+
+    (phoenix 1.7.21) lib/phoenix/verified_routes.ex:880: Phoenix.VerifiedRoutes.attr!/2
+    (phoenix 1.7.21) lib/phoenix/verified_routes.ex:233: Phoenix.VerifiedRoutes."MACRO-sigil_p"/3
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/normalized/macro/env.ex:68: anonymous fn/5 in LXElixirSense.Core.Normalized.Macro.Env.wrap_expansion/7
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:1940: LXElixirSense.Core.Compiler.expand_macro_callback/7
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:28: LXElixirSense.Core.Compiler.expand/3
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:2620: LXElixirSense.Core.Compiler.expand_arg/3
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:2550: LXElixirSense.Core.Compiler.map_fold/5
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:2634: LXElixirSense.Core.Compiler.expand_args/3
+
+13:13:44.986 [warning] ** (Protocol.UndefinedError) protocol Enumerable not implemented for type Atom
+
+Got value:
+
+    nil
+
+    (elixir 1.18.1) lib/enum.ex:1: Enumerable.impl_for!/1
+    (elixir 1.18.1) lib/enum.ex:166: Enumerable.reduce/3
+    (elixir 1.18.1) lib/enum.ex:4511: Enum.reverse/1
+    (phoenix_live_view 1.0.10) lib/phoenix_live_view.ex:398: Phoenix.LiveView."MACRO-__before_compile__"/2
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/normalized/macro/env.ex:68: anonymous fn/5 in LXElixirSense.Core.Normalized.Macro.Env.wrap_expansion/7
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:1940: LXElixirSense.Core.Compiler.expand_macro_callback/7
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:28: LXElixirSense.Core.Compiler.expand/3
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:2202: LXElixirSense.Core.Compiler.expand_block/5
+
+13:13:45.357 [warning] Task Elixir.LXical.Server.Provider.Handlers.CodeLens.handle/2 ran for  0.296 ms. Result :success
+13:13:45.501 [warning] Task Elixir.LXical.Server.Provider.Handlers.DocumentSymbols.handle/2 ran for  140 ms. Result :success
+13:13:45.538 [warning] Task Elixir.LXical.Server.Provider.Handlers.DocumentSymbols.handle/2 ran for  77 ms. Result :canceled
+13:13:45.539 [error] Child :undefined of Supervisor LXical.Server.TaskQueue.State.TaskSupervisor terminated
+** (exit) :canceled
+Pid: #PID<0.1623.0>
+Start Call: Task.Supervised.start_link/?
+Restart: :temporary
+Shutdown: 5000
+Type: :worker
+13:13:45.838 [warning] Task Elixir.LXical.Server.Provider.Handlers.CodeLens.handle/2 ran for  0.256 ms. Result :success
+13:13:45.990 [warning] Task Elixir.LXical.Server.Provider.Handlers.DocumentSymbols.handle/2 ran for  149 ms. Result :success
+13:13:46.124 [warning] Task Elixir.LXical.Server.Provider.Handlers.CodeLens.handle/2 ran for  0.172 ms. Result :success
+13:13:46.243 [warning] Task Elixir.LXical.Server.Provider.Handlers.DocumentSymbols.handle/2 ran for  116 ms. Result :success
+13:13:46.345 [warning] Task Elixir.LXical.Server.Provider.Handlers.DocumentSymbols.handle/2 ran for  118 ms. Result :success
+13:13:46.867 [warning] Task Elixir.LXical.Server.Provider.Handlers.Completion.handle/2 ran for  2.1 seconds. Result :canceled
+13:13:46.868 [error] Child :undefined of Supervisor LXical.Server.TaskQueue.State.TaskSupervisor terminated
+** (exit) :canceled
+Pid: #PID<0.1620.0>
+Start Call: Task.Supervised.start_link/?
+Restart: :temporary
+Shutdown: 5000
+Type: :worker
+13:13:46.881 [info] Emitting Completions: []
+13:13:46.881 [warning] Task Elixir.LXical.Server.Provider.Handlers.Completion.handle/2 ran for  12 ms. Result :success
+13:13:47.100 [info] Emitting Completions: []
+13:13:47.100 [warning] Task Elixir.LXical.Server.Provider.Handlers.Completion.handle/2 ran for  7 ms. Result :success
+13:13:47.219 [warning] Task Elixir.LXical.Server.Provider.Handlers.DocumentSymbols.handle/2 ran for  0.748 ms. Result :canceled
+13:13:47.219 [error] Child :undefined of Supervisor LXical.Server.TaskQueue.State.TaskSupervisor terminated
+** (exit) :canceled
+Pid: #PID<0.1631.0>
+Start Call: Task.Supervised.start_link/?
+Restart: :temporary
+Shutdown: 5000
+Type: :worker
+13:13:47.701 [info] Completion for LxPos<<18, 27>>
+13:13:47.706 [warning] ** (ArgumentError) could not call Module.put_attribute/3 because the module MidasWeb.FinancesLive.MoneySources.Form is already compiled
+    (elixir 1.18.1) lib/module.ex:2398: Module.assert_not_readonly!/2
+    (elixir 1.18.1) lib/module.ex:2079: Module.__put_attribute__/5
+    (gettext 0.26.2) lib/gettext.ex:625: Gettext."MACRO-__using__"/2
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/normalized/macro/env.ex:68: anonymous fn/5 in LXElixirSense.Core.Normalized.Macro.Env.wrap_expansion/7
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:1940: LXElixirSense.Core.Compiler.expand_macro_callback/7
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:28: LXElixirSense.Core.Compiler.expand/3
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:2202: LXElixirSense.Core.Compiler.expand_block/5
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:113: LXElixirSense.Core.Compiler.do_expand/3
+
+13:13:47.710 [warning] ** (ArgumentError) could not call Module.get_attribute/2 because the module MidasWeb.FinancesLive.MoneySources.Form is already compiled. Use the Module.__info__/1 callback or Code.fetch_docs/1 instead
+    (elixir 1.18.1) lib/module.ex:2383: Module.assert_not_compiled!/3
+    (elixir 1.18.1) lib/module.ex:1984: Module.get_attribute/7
+    (phoenix 1.7.21) lib/phoenix/verified_routes.ex:879: Phoenix.VerifiedRoutes.attr!/2
+    (phoenix 1.7.21) lib/phoenix/verified_routes.ex:233: Phoenix.VerifiedRoutes."MACRO-sigil_p"/3
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/normalized/macro/env.ex:68: anonymous fn/5 in LXElixirSense.Core.Normalized.Macro.Env.wrap_expansion/7
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:1940: LXElixirSense.Core.Compiler.expand_macro_callback/7
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:28: LXElixirSense.Core.Compiler.expand/3
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:2620: LXElixirSense.Core.Compiler.expand_arg/3
+
+13:13:47.712 [warning] ** (ArgumentError) could not call Module.get_attribute/2 because the module MidasWeb.FinancesLive.MoneySources.Form is already compiled. Use the Module.__info__/1 callback or Code.fetch_docs/1 instead
+    (elixir 1.18.1) lib/module.ex:2383: Module.assert_not_compiled!/3
+    (elixir 1.18.1) lib/module.ex:1984: Module.get_attribute/7
+    (phoenix 1.7.21) lib/phoenix/verified_routes.ex:879: Phoenix.VerifiedRoutes.attr!/2
+    (phoenix 1.7.21) lib/phoenix/verified_routes.ex:233: Phoenix.VerifiedRoutes."MACRO-sigil_p"/3
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/normalized/macro/env.ex:68: anonymous fn/5 in LXElixirSense.Core.Normalized.Macro.Env.wrap_expansion/7
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:1940: LXElixirSense.Core.Compiler.expand_macro_callback/7
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:28: LXElixirSense.Core.Compiler.expand/3
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:2620: LXElixirSense.Core.Compiler.expand_arg/3
+
+13:13:47.713 [warning] ** (ArgumentError) could not call Module.defines?/2 because the module MidasWeb.FinancesLive.MoneySources.Form is already compiled. Use Kernel.function_exported?/3 and Kernel.macro_exported?/3 to check for public functions and macros instead
+    (elixir 1.18.1) lib/module.ex:2383: Module.assert_not_compiled!/3
+    (elixir 1.18.1) lib/module.ex:1197: Module.defines?/2
+    (phoenix_live_view 1.0.10) lib/phoenix_live_view/renderer.ex:7: Phoenix.LiveView.Renderer."MACRO-__before_compile__"/2
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/normalized/macro/env.ex:68: anonymous fn/5 in LXElixirSense.Core.Normalized.Macro.Env.wrap_expansion/7
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:1940: LXElixirSense.Core.Compiler.expand_macro_callback/7
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:28: LXElixirSense.Core.Compiler.expand/3
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:2202: LXElixirSense.Core.Compiler.expand_block/5
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:113: LXElixirSense.Core.Compiler.do_expand/3
+
+13:13:47.714 [warning] ** (ArgumentError) could not call Module.get_attribute/2 because the module MidasWeb.FinancesLive.MoneySources.Form is already compiled. Use the Module.__info__/1 callback or Code.fetch_docs/1 instead
+    (elixir 1.18.1) lib/module.ex:2383: Module.assert_not_compiled!/3
+    (elixir 1.18.1) lib/module.ex:1984: Module.get_attribute/7
+    (phoenix_live_view 1.0.10) lib/phoenix_live_view.ex:393: Phoenix.LiveView."MACRO-__before_compile__"/2
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/normalized/macro/env.ex:68: anonymous fn/5 in LXElixirSense.Core.Normalized.Macro.Env.wrap_expansion/7
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:1940: LXElixirSense.Core.Compiler.expand_macro_callback/7
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:28: LXElixirSense.Core.Compiler.expand/3
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:2202: LXElixirSense.Core.Compiler.expand_block/5
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:113: LXElixirSense.Core.Compiler.do_expand/3
+
+13:13:47.716 [warning] ** (ArgumentError) could not call Module.put_attribute/3 because the module MidasWeb.FinancesLive.MoneySources.Form is already compiled
+    (elixir 1.18.1) lib/module.ex:2398: Module.assert_not_readonly!/2
+    (elixir 1.18.1) lib/module.ex:2079: Module.__put_attribute__/5
+    (gettext 0.26.2) lib/gettext.ex:625: Gettext."MACRO-__using__"/2
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/normalized/macro/env.ex:68: anonymous fn/5 in LXElixirSense.Core.Normalized.Macro.Env.wrap_expansion/7
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:1940: LXElixirSense.Core.Compiler.expand_macro_callback/7
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:28: LXElixirSense.Core.Compiler.expand/3
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:2202: LXElixirSense.Core.Compiler.expand_block/5
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:113: LXElixirSense.Core.Compiler.do_expand/3
+
+13:13:47.719 [warning] ** (ArgumentError) could not call Module.get_attribute/2 because the module MidasWeb.FinancesLive.MoneySources.Form is already compiled. Use the Module.__info__/1 callback or Code.fetch_docs/1 instead
+    (elixir 1.18.1) lib/module.ex:2383: Module.assert_not_compiled!/3
+    (elixir 1.18.1) lib/module.ex:1984: Module.get_attribute/7
+    (phoenix 1.7.21) lib/phoenix/verified_routes.ex:879: Phoenix.VerifiedRoutes.attr!/2
+    (phoenix 1.7.21) lib/phoenix/verified_routes.ex:233: Phoenix.VerifiedRoutes."MACRO-sigil_p"/3
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/normalized/macro/env.ex:68: anonymous fn/5 in LXElixirSense.Core.Normalized.Macro.Env.wrap_expansion/7
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:1940: LXElixirSense.Core.Compiler.expand_macro_callback/7
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:28: LXElixirSense.Core.Compiler.expand/3
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:2620: LXElixirSense.Core.Compiler.expand_arg/3
+
+13:13:47.721 [warning] ** (ArgumentError) could not call Module.get_attribute/2 because the module MidasWeb.FinancesLive.MoneySources.Form is already compiled. Use the Module.__info__/1 callback or Code.fetch_docs/1 instead
+    (elixir 1.18.1) lib/module.ex:2383: Module.assert_not_compiled!/3
+    (elixir 1.18.1) lib/module.ex:1984: Module.get_attribute/7
+    (phoenix 1.7.21) lib/phoenix/verified_routes.ex:879: Phoenix.VerifiedRoutes.attr!/2
+    (phoenix 1.7.21) lib/phoenix/verified_routes.ex:233: Phoenix.VerifiedRoutes."MACRO-sigil_p"/3
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/normalized/macro/env.ex:68: anonymous fn/5 in LXElixirSense.Core.Normalized.Macro.Env.wrap_expansion/7
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:1940: LXElixirSense.Core.Compiler.expand_macro_callback/7
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:28: LXElixirSense.Core.Compiler.expand/3
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:2620: LXElixirSense.Core.Compiler.expand_arg/3
+
+13:13:47.722 [warning] ** (ArgumentError) could not call Module.defines?/2 because the module MidasWeb.FinancesLive.MoneySources.Form is already compiled. Use Kernel.function_exported?/3 and Kernel.macro_exported?/3 to check for public functions and macros instead
+    (elixir 1.18.1) lib/module.ex:2383: Module.assert_not_compiled!/3
+    (elixir 1.18.1) lib/module.ex:1197: Module.defines?/2
+    (phoenix_live_view 1.0.10) lib/phoenix_live_view/renderer.ex:7: Phoenix.LiveView.Renderer."MACRO-__before_compile__"/2
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/normalized/macro/env.ex:68: anonymous fn/5 in LXElixirSense.Core.Normalized.Macro.Env.wrap_expansion/7
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:1940: LXElixirSense.Core.Compiler.expand_macro_callback/7
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:28: LXElixirSense.Core.Compiler.expand/3
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:2202: LXElixirSense.Core.Compiler.expand_block/5
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:113: LXElixirSense.Core.Compiler.do_expand/3
+
+13:13:47.723 [warning] ** (ArgumentError) could not call Module.get_attribute/2 because the module MidasWeb.FinancesLive.MoneySources.Form is already compiled. Use the Module.__info__/1 callback or Code.fetch_docs/1 instead
+    (elixir 1.18.1) lib/module.ex:2383: Module.assert_not_compiled!/3
+    (elixir 1.18.1) lib/module.ex:1984: Module.get_attribute/7
+    (phoenix_live_view 1.0.10) lib/phoenix_live_view.ex:393: Phoenix.LiveView."MACRO-__before_compile__"/2
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/normalized/macro/env.ex:68: anonymous fn/5 in LXElixirSense.Core.Normalized.Macro.Env.wrap_expansion/7
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:1940: LXElixirSense.Core.Compiler.expand_macro_callback/7
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:28: LXElixirSense.Core.Compiler.expand/3
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:2202: LXElixirSense.Core.Compiler.expand_block/5
+    (lx_elixir_sense 2.0.0) lib/elixir_sense/core/compiler.ex:113: LXElixirSense.Core.Compiler.do_expand/3
+
+13:13:47.955 [warning] Task Elixir.LXical.Server.Provider.Handlers.CodeLens.handle/2 ran for  0.225 ms. Result :success
+13:13:48.051 [warning] Task Elixir.LXical.Server.Provider.Handlers.DocumentSymbols.handle/2 ran for  87 ms. Result :success
+13:13:48.110 [warning] Task Elixir.LXical.Server.Provider.Handlers.DocumentSymbols.handle/2 ran for  93 ms. Result :success
+13:13:48.534 [warning] Task Elixir.LXical.Server.Provider.Handlers.Completion.handle/2 ran for  840 ms. Result :canceled
+13:13:48.535 [error] Child :undefined of Supervisor LXical.Server.TaskQueue.State.TaskSupervisor terminated
+** (exit) :canceled
+Pid: #PID<0.1632.0>
+Start Call: Task.Supervised.start_link/?
+Restart: :temporary
+Shutdown: 5000
+Type: :worker
+13:13:48.789 [warning] Task Elixir.LXical.Server.Provider.Handlers.CodeLens.handle/2 ran for  0.22 ms. Result :success
+13:13:48.923 [warning] Task Elixir.LXical.Server.Provider.Handlers.DocumentSymbols.handle/2 ran for  131 ms. Result :success
+13:13:48.972 [warning] Task Elixir.LXical.Server.Provider.Handlers.DocumentSymbols.handle/2 ran for  90 ms. Result :success
+13:13:50.200 [warning] Task Elixir.LXical.Server.Provider.Handlers.Hover.handle/2 ran for  0.021 ms. Result :canceled
+13:13:50.201 [error] Child :undefined of Supervisor LXical.Server.TaskQueue.State.TaskSupervisor terminated
+** (exit) :canceled
+Pid: #PID<0.1639.0>
+Start Call: Task.Supervised.start_link/?
+Restart: :temporary
+Shutdown: 5000
+Type: :worker
+13:13:51.732 [warning] Task Elixir.LXical.Server.Provider.Handlers.CodeLens.handle/2 ran for  0.303 ms. Result :success
+13:13:51.828 [warning] Task Elixir.LXical.Server.Provider.Handlers.DocumentSymbols.handle/2 ran for  92 ms. Result :success
+13:13:51.999 [warning] Task Elixir.LXical.Server.Provider.Handlers.DocumentSymbols.handle/2 ran for  166 ms. Result :success
+13:13:52.311 [warning] Task Elixir.LXical.Server.Provider.Handlers.CodeLens.handle/2 ran for  0.203 ms. Result :success
+13:13:52.355 [info] Compiled midas in 292 ms

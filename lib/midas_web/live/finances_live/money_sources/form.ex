@@ -15,6 +15,7 @@ defmodule MidasWeb.FinancesLive.MoneySources.Form do
           |> assign(form: to_form(Finances.change_money_source(money_source)))
           |> assign(:money_source, money_source)
           |> assign(:mode, :edit)
+          |> assign(:page_title, "Editar conta")
 
         {:ok, socket}
 
@@ -24,6 +25,7 @@ defmodule MidasWeb.FinancesLive.MoneySources.Form do
           |> assign(form: to_form(Finances.change_money_source(%MoneySource{})))
           |> assign(:money_source, nil)
           |> assign(:mode, :new)
+          |> assign(:page_title, "Nova conta")
 
         {:ok, socket}
     end
