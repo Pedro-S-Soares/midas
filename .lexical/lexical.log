@@ -12843,3 +12843,379 @@ Type: :worker
 13:55:01.155 [warning] Task Elixir.LXical.Server.Provider.Handlers.DocumentSymbols.handle/2 ran for  53 ms. Result :success
 13:55:01.689 [info] Compiled midas in 150 ms
 13:55:01.791 [warning] Task Elixir.LXical.Server.Provider.Handlers.CodeLens.handle/2 ran for  0.293 ms. Result :success
+14:40:12.943 [error] stdio received :eof, server will stop.
+14:40:12.947 [error] Child LXical.Server.Transport.StdIO of Supervisor LXical.Server.Supervisor terminated
+** (exit) normal
+Pid: #PID<0.1576.0>
+Start Call: LXical.Server.Transport.StdIO.start_link(:standard_io, &LXical.Server.protocol_message/1)
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+14:40:12.948 [info] Child LXical.Server.Transport.StdIO of Supervisor LXical.Server.Supervisor started
+Pid: #PID<0.3231.0>
+Start Call: LXical.Server.Transport.StdIO.start_link(:standard_io, &LXical.Server.protocol_message/1)
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+12:11:59.463 [info] Child {LoggerFileBackend, :general_log} of Supervisor Logger.Backends.Supervisor started
+Pid: #PID<0.120.0>
+Start Call: Logger.Backends.Watcher.start_link({{LoggerFileBackend, :general_log}, {LoggerFileBackend, :general_log}})
+Restart: :transient
+Shutdown: 5000
+Type: :worker
+12:11:59.464 [info] Child Logger.Backends.Supervisor of Supervisor Logger.Backends.Internal started
+Pid: #PID<0.119.0>
+Start Call: Logger.Backends.Supervisor.start_link([{LoggerFileBackend, :general_log}])
+Restart: :permanent
+Shutdown: :infinity
+Type: :supervisor
+12:11:59.464 [info] Child Logger.Backends.Internal of Supervisor Logger.Supervisor started
+Pid: #PID<0.115.0>
+Start Call: Logger.Backends.Internal.start_link([])
+Restart: :permanent
+Shutdown: :infinity
+Type: :supervisor
+12:11:59.464 [info] Application logger started at :nonode@nohost
+12:12:01.564 [info] Child :ttb_autostart of Supervisor :runtime_tools_sup started
+Pid: #PID<0.1550.0>
+Start Call: :ttb_autostart.start_link()
+Restart: :temporary
+Shutdown: 3000
+Type: :worker
+12:12:01.564 [info] Application runtime_tools started at :nonode@nohost
+12:12:01.567 [info] Application erts started at :nonode@nohost
+12:12:01.567 [info] Application lx_lexical_shared started at :nonode@nohost
+12:12:01.568 [info] Application lx_lexical_test started at :nonode@nohost
+12:12:01.571 [info] Child LXSnowflake.Generator of Supervisor #PID<0.1557.0> (Supervisor.Default) started
+Pid: #PID<0.1558.0>
+Start Call: LXSnowflake.Generator.start_link(1704070800000, 1)
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+12:12:01.571 [info] Application lx_snowflake started at :nonode@nohost
+12:12:01.571 [info] Application lx_sourceror started at :nonode@nohost
+12:12:01.571 [info] Application lx_common started at :nonode@nohost
+12:12:01.571 [info] Application lx_elixir_sense started at :nonode@nohost
+12:12:01.571 [info] Application jason started at :nonode@nohost
+12:12:01.572 [info] Application logger_file_backend started at :nonode@nohost
+12:12:01.572 [info] Application lx_path_glob started at :nonode@nohost
+12:12:01.572 [info] Application lx_proto started at :nonode@nohost
+12:12:01.572 [info] Application lx_protocol started at :nonode@nohost
+12:12:01.608 [info] Child LXical.Document.Store of Supervisor LXical.Server.Supervisor started
+Pid: #PID<0.1571.0>
+Start Call: LXical.Document.Store.start_link([derive: [analysis: &LXical.Ast.analyze/1]])
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+12:12:01.616 [info] Child LXical.Server of Supervisor LXical.Server.Supervisor started
+Pid: #PID<0.1572.0>
+Start Call: LXical.Server.start_link([])
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+12:12:01.616 [info] Child LXical.Server.ProjectSupervisor of Supervisor LXical.Server.Supervisor started
+Pid: #PID<0.1573.0>
+Start Call: DynamicSupervisor.start_link([name: LXical.Server.ProjectSupervisor, strategy: :one_for_one])
+Restart: :permanent
+Shutdown: :infinity
+Type: :supervisor
+12:12:01.616 [info] Child LXical.Server.TaskQueue.State.TaskSupervisor of Supervisor LXical.Server.Supervisor started
+Pid: #PID<0.1574.0>
+Start Call: Task.Supervisor.start_link([name: LXical.Server.TaskQueue.State.TaskSupervisor])
+Restart: :permanent
+Shutdown: :infinity
+Type: :supervisor
+12:12:01.616 [info] Child LXical.Server.TaskQueue of Supervisor LXical.Server.Supervisor started
+Pid: #PID<0.1575.0>
+Start Call: LXical.Server.TaskQueue.start_link([])
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+12:12:01.616 [info] Child LXical.Server.Transport.StdIO of Supervisor LXical.Server.Supervisor started
+Pid: #PID<0.1576.0>
+Start Call: LXical.Server.Transport.StdIO.start_link(:standard_io, &LXical.Server.protocol_message/1)
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+12:12:01.617 [info] Application lx_server started at :nonode@nohost
+12:12:01.660 [info] Starting project at uri file:///home/pedro/projects/personal/midas
+12:12:01.702 [info] Child {LXical.Server.Project.Progress, "midas"} of Supervisor :"midas::supervisor" started
+Pid: #PID<0.1578.0>
+Start Call: LXical.Server.Project.Progress.start_link(%{__struct__: LXical.Project, entropy: 41904, project_module: nil, mix_exs_uri: "file:///home/pedro/projects/personal/midas/mix.exs", mix_project?: true, root_uri: "file:///home/pedro/projects/personal/midas", env_variables: %{}, mix_env: nil, mix_target: nil})
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+12:12:01.718 [info] Child {LXical.RemoteControl.ProjectNodeSupervisor, "midas"} of Supervisor :"midas::supervisor" started
+Pid: #PID<0.1579.0>
+Start Call: LXical.RemoteControl.ProjectNodeSupervisor.start_link(%{__struct__: LXical.Project, entropy: 41904, project_module: nil, mix_exs_uri: "file:///home/pedro/projects/personal/midas/mix.exs", mix_project?: true, root_uri: "file:///home/pedro/projects/personal/midas", env_variables: %{}, mix_env: nil, mix_target: nil})
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+12:12:01.745 [info] Child :erl_epmd of Supervisor :net_sup started
+Pid: #PID<0.1582.0>
+Start Call: :erl_epmd.start_link()
+Restart: :permanent
+Shutdown: 2000
+Type: :worker
+12:12:01.749 [info] Child :auth of Supervisor :net_sup started
+Pid: #PID<0.1583.0>
+Start Call: :auth.start_link()
+Restart: :permanent
+Shutdown: 2000
+Type: :worker
+12:12:01.756 [info] Child :net_kernel of Supervisor :net_sup started
+Pid: #PID<0.1584.0>
+Start Call: :net_kernel.start_link(%{name: :"manager-midas-41904@127.0.0.1", supervisor: :net_sup_dynamic, name_domain: :longnames, clean_halt: false})
+Restart: :permanent
+Shutdown: 2000
+Type: :worker
+12:12:01.756 [info] Child :net_sup_dynamic of Supervisor :kernel_sup started
+Pid: #PID<0.1581.0>
+Start Call: :erl_distribution.start_link(%{name: :"manager-midas-41904@127.0.0.1", supervisor: :net_sup_dynamic, name_domain: :longnames, clean_halt: false})
+Restart: :permanent
+Shutdown: 1000
+Type: :supervisor
+12:12:03.282 [info] Child {LXical.Server.Project.Node, "midas"} of Supervisor :"midas::supervisor" started
+Pid: #PID<0.1580.0>
+Start Call: LXical.Server.Project.Node.start_link(%{__struct__: LXical.Project, entropy: 41904, project_module: nil, mix_exs_uri: "file:///home/pedro/projects/personal/midas/mix.exs", mix_project?: true, root_uri: "file:///home/pedro/projects/personal/midas", env_variables: %{}, mix_env: nil, mix_target: nil})
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+12:12:03.287 [info] Child {LXical.Server.Project.Diagnostics, "midas"} of Supervisor :"midas::supervisor" started
+Pid: #PID<0.1592.0>
+Start Call: LXical.Server.Project.Diagnostics.start_link(%{__struct__: LXical.Project, entropy: 41904, project_module: nil, mix_exs_uri: "file:///home/pedro/projects/personal/midas/mix.exs", mix_project?: true, root_uri: "file:///home/pedro/projects/personal/midas", env_variables: %{}, mix_env: nil, mix_target: nil})
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+12:12:03.296 [info] Child {LXical.Server.Project.Intelligence, "midas"} of Supervisor :"midas::supervisor" started
+Pid: #PID<0.1593.0>
+Start Call: LXical.Server.Project.Intelligence.start_link(%{__struct__: LXical.Project, entropy: 41904, project_module: nil, mix_exs_uri: "file:///home/pedro/projects/personal/midas/mix.exs", mix_project?: true, root_uri: "file:///home/pedro/projects/personal/midas", env_variables: %{}, mix_env: nil, mix_target: nil})
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+12:12:03.297 [info] Child LXical.Server.Project.SearchListener of Supervisor :"midas::supervisor" started
+Pid: #PID<0.1594.0>
+Start Call: LXical.Server.Project.SearchListener.start_link(%{__struct__: LXical.Project, entropy: 41904, project_module: nil, mix_exs_uri: "file:///home/pedro/projects/personal/midas/mix.exs", mix_project?: true, root_uri: "file:///home/pedro/projects/personal/midas", env_variables: %{}, mix_env: nil, mix_target: nil})
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+12:12:03.299 [info] Lexical Initialized
+12:12:03.299 [info] opened file:///home/pedro/projects/personal/midas/lib/midas/finances.ex
+12:12:03.494 [warning] Task Elixir.LXical.Server.Provider.Handlers.DocumentSymbols.handle/2 ran for  191 ms. Result :success
+12:12:04.317 [info] Compiled midas in 974 ms
+12:12:39.543 [info] opened file:///home/pedro/projects/personal/midas/lib/midas/finances/search.ex
+12:12:39.544 [info] opened file:///home/pedro/projects/personal/midas/test/midas/finances/update_test.exs
+12:12:39.545 [info] opened file:///home/pedro/projects/personal/midas/lib/midas/finances/update.ex
+12:12:39.546 [info] opened file:///home/pedro/projects/personal/midas/test/midas/finances/search_test.exs
+12:12:39.547 [info] opened file:///home/pedro/projects/personal/midas/lib/midas_web/live/finances_live/form.ex
+12:12:39.548 [info] opened file:///home/pedro/projects/personal/midas/lib/midas_web/live/finances_live/money_sources/form.ex
+12:12:39.553 [warning] Task Elixir.LXical.Server.Provider.Handlers.DocumentSymbols.handle/2 ran for  10 ms. Result :canceled
+12:12:39.553 [error] Child :undefined of Supervisor LXical.Server.TaskQueue.State.TaskSupervisor terminated
+** (exit) :canceled
+Pid: #PID<0.1596.0>
+Start Call: Task.Supervised.start_link/?
+Restart: :temporary
+Shutdown: 5000
+Type: :worker
+12:12:39.553 [warning] Task Elixir.LXical.Server.Provider.Handlers.CodeLens.handle/2 ran for  10 ms. Result :canceled
+12:12:39.553 [error] Child :undefined of Supervisor LXical.Server.TaskQueue.State.TaskSupervisor terminated
+** (exit) :canceled
+Pid: #PID<0.1597.0>
+Start Call: Task.Supervised.start_link/?
+Restart: :temporary
+Shutdown: 5000
+Type: :worker
+12:12:39.554 [warning] Task Elixir.LXical.Server.Provider.Handlers.CodeLens.handle/2 ran for  11 ms. Result :canceled
+12:12:39.554 [error] Child :undefined of Supervisor LXical.Server.TaskQueue.State.TaskSupervisor terminated
+** (exit) :canceled
+Pid: #PID<0.1598.0>
+Start Call: Task.Supervised.start_link/?
+Restart: :temporary
+Shutdown: 5000
+Type: :worker
+12:12:39.554 [warning] Task Elixir.LXical.Server.Provider.Handlers.DocumentSymbols.handle/2 ran for  11 ms. Result :canceled
+12:12:39.554 [error] Child :undefined of Supervisor LXical.Server.TaskQueue.State.TaskSupervisor terminated
+** (exit) :canceled
+Pid: #PID<0.1599.0>
+Start Call: Task.Supervised.start_link/?
+Restart: :temporary
+Shutdown: 5000
+Type: :worker
+12:12:39.554 [warning] Task Elixir.LXical.Server.Provider.Handlers.DocumentSymbols.handle/2 ran for  10 ms. Result :canceled
+12:12:39.554 [error] Child :undefined of Supervisor LXical.Server.TaskQueue.State.TaskSupervisor terminated
+** (exit) :canceled
+Pid: #PID<0.1600.0>
+Start Call: Task.Supervised.start_link/?
+Restart: :temporary
+Shutdown: 5000
+Type: :worker
+12:12:39.558 [warning] Task Elixir.LXical.Server.Provider.Handlers.DocumentSymbols.handle/2 ran for  11 ms. Result :canceled
+12:12:39.558 [error] Child :undefined of Supervisor LXical.Server.TaskQueue.State.TaskSupervisor terminated
+** (exit) :canceled
+Pid: #PID<0.1601.0>
+Start Call: Task.Supervised.start_link/?
+Restart: :temporary
+Shutdown: 5000
+Type: :worker
+12:12:39.558 [warning] Task Elixir.LXical.Server.Provider.Handlers.DocumentSymbols.handle/2 ran for  9 ms. Result :canceled
+12:12:39.558 [error] Child :undefined of Supervisor LXical.Server.TaskQueue.State.TaskSupervisor terminated
+** (exit) :canceled
+Pid: #PID<0.1602.0>
+Start Call: Task.Supervised.start_link/?
+Restart: :temporary
+Shutdown: 5000
+Type: :worker
+12:15:55.233 [info] opened file:///home/pedro/projects/personal/midas/lib/midas_web/live/finances_live/index.ex
+12:15:55.234 [info] opened file:///home/pedro/projects/personal/midas/lib/midas_web/live/finances_live/money_sources/show.ex
+12:15:55.235 [info] opened file:///home/pedro/projects/personal/midas/lib/midas_web/live/finances_live/money_sources/form.ex
+12:15:55.236 [info] opened file:///home/pedro/projects/personal/midas/lib/midas_web/live/finances_live/form.ex
+12:15:55.237 [info] opened file:///home/pedro/projects/personal/midas/lib/midas/finances/delete.ex
+12:15:55.238 [info] opened file:///home/pedro/projects/personal/midas/lib/midas_web/router.ex
+12:15:55.241 [info] opened file:///home/pedro/projects/personal/midas/lib/midas_web/components/core_components.ex
+12:16:17.378 [info] opened file:///home/pedro/projects/personal/midas/lib/midas_web/live/finances_live/index.ex
+12:16:17.378 [info] opened file:///home/pedro/projects/personal/midas/lib/midas_web/live/finances_live/money_sources/show.ex
+12:16:17.379 [info] opened file:///home/pedro/projects/personal/midas/lib/midas_web/live/finances_live/money_sources/form.ex
+12:16:17.380 [info] opened file:///home/pedro/projects/personal/midas/lib/midas_web/live/finances_live/form.ex
+12:16:17.385 [error] read protocol message: %{data: "\r\n{\"jsonrpc\":\"2.0\",\"method\":\"textDocument/didOpen\",\"params\":{\"textDocument\":{\"uri\":\"file:///home/pedro/projects/personal/midas/lib/midas/finances/delete.ex\",\"languageId\":\"elixir\",\"version\":1,\"text\":\"defmodule Midas.Finances.Delete do\\n  alias Midas.Repo\\n  alias Ecto.Multi\\n  alias Midas.Finances.Finance\\n  alias Midas.Finances.MoneySource\\n\\n  def delete_finance(user_id, finance_id) do\\n    finance = Repo.get(Finance, finance_id)\\n\\n    cond do\\n      is_nil(finance) ->\\n        {:error, \\\"Finance not found\\\"}\\n\\n      finance.user_id != user_id ->\\n        {:error, \\\"Unauthorized\\\"}\\n\\n      true ->\\n        do_delete_finance(finance)\\n    end\\n  end\\n\\n  defp do_delete_finance(finance) do\\n    money_source = Repo.preload(finance, :money_source).money_source\\n\\n    Multi.new()\\n    |> Multi.delete(:finance, finance)\\n    |> Multi.put(:money_source, money_source)\\n    |> Multi.update(:updated_money_source, fn %{money_source: money_source} ->\\n      attrs = %{current_value: Decimal.sub(money_source.current_value, finance.amount)}\\n      MoneySource.changeset(money_source, attrs)\\n    end)\\n    |> Repo.transaction()\\n  end\\nend\\n\"}", position: 1148, __struct__: Jason.DecodeError, __exception__: true, token: nil}
+12:16:17.386 [error] read protocol message: {:header_not_found, "content-length"}
+12:16:17.432 [error] Process #PID<0.1576.0> terminating
+** (MatchError) no match of right hand side value: ["{\"jsonrpc\"", "\"2.0\",\"method\"", "\"textDocument/didClose\",\"params\"", "{\"textDocument\"", "{\"uri\"", "\"file", "///home/pedro/projects/personal/midas/lib/midas/finances/delete.ex\"}}}Content-Length", " 3289\n"]
+    (lx_server 0.7.2) lib/lexical/server/transport/std_io.ex:126: LXical.Server.Transport.StdIO.parse_header/1
+    (elixir 1.18.1) lib/enum.ex:1714: Enum."-map/2-lists^map/1-1-"/2
+    (lx_server 0.7.2) lib/lexical/server/transport/std_io.ex:62: LXical.Server.Transport.StdIO.loop/3
+    (stdlib 5.0.2) proc_lib.erl:241: :proc_lib.init_p_do_apply/3
+Initial Call: LXical.Server.Transport.StdIO.init/1
+Ancestors: [LXical.Server.Supervisor, #PID<0.1569.0>]
+Message Queue Length: 0
+Messages: []
+Links: [#PID<0.1570.0>]
+Dictionary: []
+Trapping Exits: false
+Status: :running
+Heap Size: 2586
+Stack Size: 28
+Reductions: 117683
+12:16:17.445 [error] Child LXical.Server.Transport.StdIO of Supervisor LXical.Server.Supervisor terminated
+** (exit) an exception was raised:
+    ** (MatchError) no match of right hand side value: ["{\"jsonrpc\"", "\"2.0\",\"method\"", "\"textDocument/didClose\",\"params\"", "{\"textDocument\"", "{\"uri\"", "\"file", "///home/pedro/projects/personal/midas/lib/midas/finances/delete.ex\"}}}Content-Length", " 3289\n"]
+        (lx_server 0.7.2) lib/lexical/server/transport/std_io.ex:126: LXical.Server.Transport.StdIO.parse_header/1
+        (elixir 1.18.1) lib/enum.ex:1714: Enum."-map/2-lists^map/1-1-"/2
+        (lx_server 0.7.2) lib/lexical/server/transport/std_io.ex:62: LXical.Server.Transport.StdIO.loop/3
+        (stdlib 5.0.2) proc_lib.erl:241: :proc_lib.init_p_do_apply/3
+Pid: #PID<0.1576.0>
+Start Call: LXical.Server.Transport.StdIO.start_link(:standard_io, &LXical.Server.protocol_message/1)
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+12:16:17.445 [info] Child LXical.Server.Transport.StdIO of Supervisor LXical.Server.Supervisor started
+Pid: #PID<0.1603.0>
+Start Call: LXical.Server.Transport.StdIO.start_link(:standard_io, &LXical.Server.protocol_message/1)
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+12:16:17.446 [error] Process #PID<0.1603.0> terminating
+** (MatchError) no match of right hand side value: ["{\"jsonrpc\"", "\"2.0\",\"method\"", "\"textDocument/didOpen\",\"params\"", "{\"textDocument\"", "{\"uri\"", "\"file", "///home/pedro/projects/personal/midas/lib/midas_web/router.ex\",\"languageId\"", "\"elixir\",\"version\"", "1,\"text\"", "\"defmodule MidasWeb.Router do\\n  use MidasWeb, ", "router\\n\\n  import MidasWeb.UserAuth\\n\\n  pipeline ", "browser do\\n    plug ", "accepts, [\\\"html\\\"]\\n    plug ", "fetch_session\\n    plug ", "fetch_live_flash\\n    plug ", "put_root_layout, html", " {MidasWeb.Layouts, ", "root}\\n    plug ", "protect_from_forgery\\n    plug ", "put_secure_browser_headers\\n    plug ", "fetch_current_user\\n  end\\n\\n  pipeline ", "api do\\n    plug ", "accepts, [\\\"json\\\"]\\n  end\\n\\n  scope \\\"/\\\", MidasWeb do\\n    pipe_through ", "browser\\n\\n    get \\\"/\\\", PageController, ", "home\\n  end\\n\\n  # Other scopes may use custom stacks.\\n  # scope \\\"/api\\\", MidasWeb do\\n  #   pipe_through ", "api\\n  # end\\n\\n  # Enable LiveDashboard and Swoosh mailbox preview in development\\n  if Application.compile_env(", "midas, ", "dev_routes) do\\n    # If you want to use the LiveDashboard in production, you should put\\n    # it behind authentication and allow only admins to access it.\\n    # If your application does not have an admins-only section yet,\\n    # you can use Plug.BasicAuth to set up some basic authentication\\n    # as long as you are also using SSL (which you should anyway).\\n    import Phoenix.LiveDashboard.Router\\n\\n    scope \\\"/dev\\\" do\\n      pipe_through ", "browser\\n\\n      live_dashboard \\\"/dashboard\\\", metrics", " MidasWeb.Telemetry\\n      forward \\\"/mailbox\\\", Plug.Swoosh.MailboxPreview\\n    end\\n  end\\n\\n  ## Authentication routes\\n\\n  scope \\\"/\\\", MidasWeb do\\n    pipe_through [", "browser, ", "redirect_if_user_is_authenticated]\\n\\n    live_session ", "redirect_if_user_is_authenticated,\\n      on_mount", " [{MidasWeb.UserAuth, ", "redirect_if_user_is_authenticated}] do\\n      live \\\"/users/register\\\", UserRegistrationLive, ", "new\\n      live \\\"/users/log_in\\\", UserLoginLive, ", "new\\n      live \\\"/users/reset_password\\\", UserForgotPasswordLive, ", "new\\n      live \\\"/users/reset_password/", "token\\\", UserResetPasswordLive, ", "edit\\n    end\\n\\n    post \\\"/users/log_in\\\", UserSessionController, ", "create\\n  end\\n\\n  scope \\\"/\\\", MidasWeb do\\n    pipe_through [", "browser, ", "require_authenticated_user]\\n\\n    live_session ", "require_authenticated_user,\\n      on_mount", " [{MidasWeb.UserAuth, ", "ensure_authenticated}] do\\n      live \\\"/users/settings\\\", UserSettingsLive, ", "edit\\n      live \\\"/users/settings/confirm_email/", "token\\\", UserSettingsLive, ", "confirm_email\\n\\n      live \\\"/finances\\\", FinancesLive.Index, ", "index\\n\\n      live \\\"/finances/money_sources\\\", FinancesLive.MoneySources.Show, ", ...]
+    (lx_server 0.7.2) lib/lexical/server/transport/std_io.ex:126: LXical.Server.Transport.StdIO.parse_header/1
+    (elixir 1.18.1) lib/enum.ex:1714: Enum."-map/2-lists^map/1-1-"/2
+    (lx_server 0.7.2) lib/lexical/server/transport/std_io.ex:62: LXical.Server.Transport.StdIO.loop/3
+    (stdlib 5.0.2) proc_lib.erl:241: :proc_lib.init_p_do_apply/3
+Initial Call: LXical.Server.Transport.StdIO.init/1
+Ancestors: [LXical.Server.Supervisor, #PID<0.1569.0>]
+Message Queue Length: 0
+Messages: []
+Links: [#PID<0.1570.0>]
+Dictionary: []
+Trapping Exits: false
+Status: :running
+Heap Size: 987
+Stack Size: 28
+Reductions: 320
+12:16:17.447 [error] Child LXical.Server.Transport.StdIO of Supervisor LXical.Server.Supervisor terminated
+** (exit) an exception was raised:
+    ** (MatchError) no match of right hand side value: ["{\"jsonrpc\"", "\"2.0\",\"method\"", "\"textDocument/didOpen\",\"params\"", "{\"textDocument\"", "{\"uri\"", "\"file", "///home/pedro/projects/personal/midas/lib/midas_web/router.ex\",\"languageId\"", "\"elixir\",\"version\"", "1,\"text\"", "\"defmodule MidasWeb.Router do\\n  use MidasWeb, ", "router\\n\\n  import MidasWeb.UserAuth\\n\\n  pipeline ", "browser do\\n    plug ", "accepts, [\\\"html\\\"]\\n    plug ", "fetch_session\\n    plug ", "fetch_live_flash\\n    plug ", "put_root_layout, html", " {MidasWeb.Layouts, ", "root}\\n    plug ", "protect_from_forgery\\n    plug ", "put_secure_browser_headers\\n    plug ", "fetch_current_user\\n  end\\n\\n  pipeline ", "api do\\n    plug ", "accepts, [\\\"json\\\"]\\n  end\\n\\n  scope \\\"/\\\", MidasWeb do\\n    pipe_through ", "browser\\n\\n    get \\\"/\\\", PageController, ", "home\\n  end\\n\\n  # Other scopes may use custom stacks.\\n  # scope \\\"/api\\\", MidasWeb do\\n  #   pipe_through ", "api\\n  # end\\n\\n  # Enable LiveDashboard and Swoosh mailbox preview in development\\n  if Application.compile_env(", "midas, ", "dev_routes) do\\n    # If you want to use the LiveDashboard in production, you should put\\n    # it behind authentication and allow only admins to access it.\\n    # If your application does not have an admins-only section yet,\\n    # you can use Plug.BasicAuth to set up some basic authentication\\n    # as long as you are also using SSL (which you should anyway).\\n    import Phoenix.LiveDashboard.Router\\n\\n    scope \\\"/dev\\\" do\\n      pipe_through ", "browser\\n\\n      live_dashboard \\\"/dashboard\\\", metrics", " MidasWeb.Telemetry\\n      forward \\\"/mailbox\\\", Plug.Swoosh.MailboxPreview\\n    end\\n  end\\n\\n  ## Authentication routes\\n\\n  scope \\\"/\\\", MidasWeb do\\n    pipe_through [", "browser, ", "redirect_if_user_is_authenticated]\\n\\n    live_session ", "redirect_if_user_is_authenticated,\\n      on_mount", " [{MidasWeb.UserAuth, ", "redirect_if_user_is_authenticated}] do\\n      live \\\"/users/register\\\", UserRegistrationLive, ", "new\\n      live \\\"/users/log_in\\\", UserLoginLive, ", "new\\n      live \\\"/users/reset_password\\\", UserForgotPasswordLive, ", "new\\n      live \\\"/users/reset_password/", "token\\\", UserResetPasswordLive, ", "edit\\n    end\\n\\n    post \\\"/users/log_in\\\", UserSessionController, ", "create\\n  end\\n\\n  scope \\\"/\\\", MidasWeb do\\n    pipe_through [", "browser, ", "require_authenticated_user]\\n\\n    live_session ", "require_authenticated_user,\\n      on_mount", " [{MidasWeb.UserAuth, ", "ensure_authenticated}] do\\n      live \\\"/users/settings\\\", UserSettingsLive, ", "edit\\n      live \\\"/users/settings/confirm_email/", "token\\\", UserSettingsLive, ", "confirm_email\\n\\n      live \\\"/finances\\\", FinancesLive.Index, ", "index\\n\\n      live \\\"/finances/money_sources\\\", FinancesLive.MoneySources.Show, ", ...]
+        (lx_server 0.7.2) lib/lexical/server/transport/std_io.ex:126: LXical.Server.Transport.StdIO.parse_header/1
+        (elixir 1.18.1) lib/enum.ex:1714: Enum."-map/2-lists^map/1-1-"/2
+        (lx_server 0.7.2) lib/lexical/server/transport/std_io.ex:62: LXical.Server.Transport.StdIO.loop/3
+        (stdlib 5.0.2) proc_lib.erl:241: :proc_lib.init_p_do_apply/3
+Pid: #PID<0.1603.0>
+Start Call: LXical.Server.Transport.StdIO.start_link(:standard_io, &LXical.Server.protocol_message/1)
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+12:16:17.447 [info] Child LXical.Server.Transport.StdIO of Supervisor LXical.Server.Supervisor started
+Pid: #PID<0.1604.0>
+Start Call: LXical.Server.Transport.StdIO.start_link(:standard_io, &LXical.Server.protocol_message/1)
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+12:16:17.451 [error] Process #PID<0.1604.0> terminating
+** (MatchError) no match of right hand side value: ["{\"jsonrpc\"", "\"2.0\",\"method\"", "\"textDocument/didOpen\",\"params\"", "{\"textDocument\"", "{\"uri\"", "\"file", "///home/pedro/projects/personal/midas/lib/midas_web/components/core_components.ex\",\"languageId\"", "\"elixir\",\"version\"", "1,\"text\"", "\"defmodule MidasWeb.CoreComponents do\\n  @moduledoc \\\"\\\"\\\"\\n  Provides core UI components.\\n\\n  At first glance, this module may seem daunting, but its goal is to provide\\n  core building blocks for your application, such as modals, tables, and\\n  forms. The components consist mostly of markup and are well-documented\\n  with doc strings and declarative assigns. You may customize and style\\n  them in any way you want, based on your application growth and needs.\\n\\n  The default components use Tailwind CSS, a utility-first CSS framework.\\n  See the [Tailwind CSS documentation](https", "//tailwindcss.com) to learn\\n  how to customize them or feel free to swap in another framework altogether.\\n\\n  Icons are provided by [heroicons](https", "//heroicons.com). See `icon/1` for usage.\\n  \\\"\\\"\\\"\\n  use Phoenix.Component\\n  use Gettext, backend", " MidasWeb.Gettext\\n\\n  alias Phoenix.LiveView.JS\\n\\n  @doc \\\"\\\"\\\"\\n  Renders a modal.\\n\\n  ## Examples\\n\\n      <.modal id=\\\"confirm-modal\\\">\\n        This is a modal.\\n      </.modal>\\n\\n  JS commands may be passed to the `", "on_cancel` to configure\\n  the closing/cancel event, for example", "\\n\\n      <.modal id=\\\"confirm\\\" on_cancel={JS.navigate(~p\\\"/posts\\\")}>\\n        This is another modal.\\n      </.modal>\\n\\n  \\\"\\\"\\\"\\n  attr ", "id, ", "string, required", " true\\n  attr ", "show, ", "boolean, default", " false\\n  attr ", "on_cancel, JS, default", " %JS{}\\n  slot ", "inner_block, required", " true\\n\\n  def modal(assigns) do\\n    ~H\\\"\\\"\\\"\\n    <div\\n      id={@id}\\n      phx-mounted={@show && show_modal(@id)}\\n      phx-remove={hide_modal(@id)}\\n      data-cancel={JS.exec(@on_cancel, \\\"phx-remove\\\")}\\n      class=\\\"relative z-50 hidden\\\"\\n    >\\n      <div id={\\\"\#{@id}-bg\\\"} class=\\\"bg-zinc-50/90 fixed inset-0 transition-opacity\\\" aria-hidden=\\\"true\\\" />\\n      <div\\n        class=\\\"fixed inset-0 overflow-y-auto\\\"\\n        aria-labelledby={\\\"\#{@id}-title\\\"}\\n        aria-describedby={\\\"\#{@id}-description\\\"}\\n        role=\\\"dialog\\\"\\n        aria-modal=\\\"true\\\"\\n        tabindex=\\\"0\\\"\\n      >\\n        <div class=\\\"flex min-h-full items-center justify-center\\\">\\n          <div class=\\\"w-full max-w-3xl p-4 sm", "p-6 lg", "py-8\\\">\\n            <.focus_wrap\\n              id={\\\"\#{@id}-container\\\"}\\n              phx-window-keydown={JS.exec(\\\"data-cancel\\\", to", " \\\"#\#{@id}\\\")}\\n              phx-key=\\\"escape\\\"\\n              phx-click-away={JS.exec(\\\"data-cancel\\\", to", " \\\"#\#{@id}\\\")}\\n              class=\\\"shadow-zinc-700/10 ring-zinc-700/10 relative hidden rounded-2xl bg-white p-14 shadow-lg ring-1 transition\\\"\\n            >\\n              <div class=\\\"absolute top-6 right-5\\\">\\n                <button\\n                  phx-click={JS.exec(\\\"data-cancel\\\", to", " \\\"#\#{@id}\\\")}\\n                  type=\\\"button\\\"\\n                  class=\\\"-m-3 flex-none p-3 opacity-20 hover", "opacity-40\\\"\\n                  aria-label={gettext(\\\"close\\\")}\\n                >\\n                  <.icon name=\\\"hero-x-mark-solid\\\" class=\\\"h-5 w-5\\\" />\\n                </button>\\n              </div>\\n              <div id={\\\"\#{@id}-content\\\"}>\\n                {render_slot(@inner_block)}\\n              </div>\\n            </.focus_wrap>\\n          </div>\\n        </div>\\n      </div>\\n    </div>\\n    \\\"\\\"\\\"\\n  end\\n\\n  @doc \\\"\\\"\\\"\\n  Renders flash notices.\\n\\n  ## Examples\\n\\n      <.flash kind={", "info} flash={@flash} />\\n      <.flash kind={", "info} phx-mounted={show(\\\"#flash\\\")}>Welcome Back!</.flash>\\n  \\\"\\\"\\\"\\n  attr ", "id, ", "string, doc", " \\\"the optional id of flash container\\\"\\n  attr ", "flash, ", "map, default", " %{}, doc", " \\\"the map of flash messages to display\\\"\\n  attr ", "title, ", "string, default", " nil\\n  attr ", "kind, ", "atom, values", " [", "info, ", "error], doc", " \\\"used for styling and flash lookup\\\"\\n  attr ", "rest, ", ...]
+    (lx_server 0.7.2) lib/lexical/server/transport/std_io.ex:126: LXical.Server.Transport.StdIO.parse_header/1
+    (elixir 1.18.1) lib/enum.ex:1714: Enum."-map/2-lists^map/1-1-"/2
+    (lx_server 0.7.2) lib/lexical/server/transport/std_io.ex:62: LXical.Server.Transport.StdIO.loop/3
+    (stdlib 5.0.2) proc_lib.erl:241: :proc_lib.init_p_do_apply/3
+Initial Call: LXical.Server.Transport.StdIO.init/1
+Ancestors: [LXical.Server.Supervisor, #PID<0.1569.0>]
+Message Queue Length: 0
+Messages: []
+Links: [#PID<0.1570.0>]
+Dictionary: []
+Trapping Exits: false
+Status: :running
+Heap Size: 2586
+Stack Size: 28
+Reductions: 755
+12:16:17.451 [error] Child LXical.Server.Transport.StdIO of Supervisor LXical.Server.Supervisor terminated
+** (exit) an exception was raised:
+    ** (MatchError) no match of right hand side value: ["{\"jsonrpc\"", "\"2.0\",\"method\"", "\"textDocument/didOpen\",\"params\"", "{\"textDocument\"", "{\"uri\"", "\"file", "///home/pedro/projects/personal/midas/lib/midas_web/components/core_components.ex\",\"languageId\"", "\"elixir\",\"version\"", "1,\"text\"", "\"defmodule MidasWeb.CoreComponents do\\n  @moduledoc \\\"\\\"\\\"\\n  Provides core UI components.\\n\\n  At first glance, this module may seem daunting, but its goal is to provide\\n  core building blocks for your application, such as modals, tables, and\\n  forms. The components consist mostly of markup and are well-documented\\n  with doc strings and declarative assigns. You may customize and style\\n  them in any way you want, based on your application growth and needs.\\n\\n  The default components use Tailwind CSS, a utility-first CSS framework.\\n  See the [Tailwind CSS documentation](https", "//tailwindcss.com) to learn\\n  how to customize them or feel free to swap in another framework altogether.\\n\\n  Icons are provided by [heroicons](https", "//heroicons.com). See `icon/1` for usage.\\n  \\\"\\\"\\\"\\n  use Phoenix.Component\\n  use Gettext, backend", " MidasWeb.Gettext\\n\\n  alias Phoenix.LiveView.JS\\n\\n  @doc \\\"\\\"\\\"\\n  Renders a modal.\\n\\n  ## Examples\\n\\n      <.modal id=\\\"confirm-modal\\\">\\n        This is a modal.\\n      </.modal>\\n\\n  JS commands may be passed to the `", "on_cancel` to configure\\n  the closing/cancel event, for example", "\\n\\n      <.modal id=\\\"confirm\\\" on_cancel={JS.navigate(~p\\\"/posts\\\")}>\\n        This is another modal.\\n      </.modal>\\n\\n  \\\"\\\"\\\"\\n  attr ", "id, ", "string, required", " true\\n  attr ", "show, ", "boolean, default", " false\\n  attr ", "on_cancel, JS, default", " %JS{}\\n  slot ", "inner_block, required", " true\\n\\n  def modal(assigns) do\\n    ~H\\\"\\\"\\\"\\n    <div\\n      id={@id}\\n      phx-mounted={@show && show_modal(@id)}\\n      phx-remove={hide_modal(@id)}\\n      data-cancel={JS.exec(@on_cancel, \\\"phx-remove\\\")}\\n      class=\\\"relative z-50 hidden\\\"\\n    >\\n      <div id={\\\"\#{@id}-bg\\\"} class=\\\"bg-zinc-50/90 fixed inset-0 transition-opacity\\\" aria-hidden=\\\"true\\\" />\\n      <div\\n        class=\\\"fixed inset-0 overflow-y-auto\\\"\\n        aria-labelledby={\\\"\#{@id}-title\\\"}\\n        aria-describedby={\\\"\#{@id}-description\\\"}\\n        role=\\\"dialog\\\"\\n        aria-modal=\\\"true\\\"\\n        tabindex=\\\"0\\\"\\n      >\\n        <div class=\\\"flex min-h-full items-center justify-center\\\">\\n          <div class=\\\"w-full max-w-3xl p-4 sm", "p-6 lg", "py-8\\\">\\n            <.focus_wrap\\n              id={\\\"\#{@id}-container\\\"}\\n              phx-window-keydown={JS.exec(\\\"data-cancel\\\", to", " \\\"#\#{@id}\\\")}\\n              phx-key=\\\"escape\\\"\\n              phx-click-away={JS.exec(\\\"data-cancel\\\", to", " \\\"#\#{@id}\\\")}\\n              class=\\\"shadow-zinc-700/10 ring-zinc-700/10 relative hidden rounded-2xl bg-white p-14 shadow-lg ring-1 transition\\\"\\n            >\\n              <div class=\\\"absolute top-6 right-5\\\">\\n                <button\\n                  phx-click={JS.exec(\\\"data-cancel\\\", to", " \\\"#\#{@id}\\\")}\\n                  type=\\\"button\\\"\\n                  class=\\\"-m-3 flex-none p-3 opacity-20 hover", "opacity-40\\\"\\n                  aria-label={gettext(\\\"close\\\")}\\n                >\\n                  <.icon name=\\\"hero-x-mark-solid\\\" class=\\\"h-5 w-5\\\" />\\n                </button>\\n              </div>\\n              <div id={\\\"\#{@id}-content\\\"}>\\n                {render_slot(@inner_block)}\\n              </div>\\n            </.focus_wrap>\\n          </div>\\n        </div>\\n      </div>\\n    </div>\\n    \\\"\\\"\\\"\\n  end\\n\\n  @doc \\\"\\\"\\\"\\n  Renders flash notices.\\n\\n  ## Examples\\n\\n      <.flash kind={", "info} flash={@flash} />\\n      <.flash kind={", "info} phx-mounted={show(\\\"#flash\\\")}>Welcome Back!</.flash>\\n  \\\"\\\"\\\"\\n  attr ", "id, ", "string, doc", " \\\"the optional id of flash container\\\"\\n  attr ", "flash, ", "map, default", " %{}, doc", " \\\"the map of flash messages to display\\\"\\n  attr ", "title, ", "string, default", " nil\\n  attr ", "kind, ", "atom, values", " [", "info, ", "error], doc", " \\\"used for styling and flash lookup\\\"\\n  attr ", "rest, ", ...]
+        (lx_server 0.7.2) lib/lexical/server/transport/std_io.ex:126: LXical.Server.Transport.StdIO.parse_header/1
+        (elixir 1.18.1) lib/enum.ex:1714: Enum."-map/2-lists^map/1-1-"/2
+        (lx_server 0.7.2) lib/lexical/server/transport/std_io.ex:62: LXical.Server.Transport.StdIO.loop/3
+        (stdlib 5.0.2) proc_lib.erl:241: :proc_lib.init_p_do_apply/3
+Pid: #PID<0.1604.0>
+Start Call: LXical.Server.Transport.StdIO.start_link(:standard_io, &LXical.Server.protocol_message/1)
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+12:16:17.452 [info] Child LXical.Server.Transport.StdIO of Supervisor LXical.Server.Supervisor started
+Pid: #PID<0.1605.0>
+Start Call: LXical.Server.Transport.StdIO.start_link(:standard_io, &LXical.Server.protocol_message/1)
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+12:16:17.452 [error] Process #PID<0.1605.0> terminating
+** (MatchError) no match of right hand side value: ["{\"jsonrpc\"", "\"2.0\",\"method\"", "\"textDocument/didClose\",\"params\"", "{\"textDocument\"", "{\"uri\"", "\"file", "///home/pedro/projects/personal/midas/lib/midas_web/router.ex\"}}}Content-Length", " 173\n"]
+    (lx_server 0.7.2) lib/lexical/server/transport/std_io.ex:126: LXical.Server.Transport.StdIO.parse_header/1
+    (elixir 1.18.1) lib/enum.ex:1714: Enum."-map/2-lists^map/1-1-"/2
+    (lx_server 0.7.2) lib/lexical/server/transport/std_io.ex:62: LXical.Server.Transport.StdIO.loop/3
+    (stdlib 5.0.2) proc_lib.erl:241: :proc_lib.init_p_do_apply/3
+Initial Call: LXical.Server.Transport.StdIO.init/1
+Ancestors: [LXical.Server.Supervisor, #PID<0.1569.0>]
+Message Queue Length: 0
+Messages: []
+Links: [#PID<0.1570.0>]
+Dictionary: []
+Trapping Exits: false
+Status: :running
+Heap Size: 376
+Stack Size: 28
+Reductions: 226
+12:16:17.453 [error] Child LXical.Server.Transport.StdIO of Supervisor LXical.Server.Supervisor terminated
+** (exit) an exception was raised:
+    ** (MatchError) no match of right hand side value: ["{\"jsonrpc\"", "\"2.0\",\"method\"", "\"textDocument/didClose\",\"params\"", "{\"textDocument\"", "{\"uri\"", "\"file", "///home/pedro/projects/personal/midas/lib/midas_web/router.ex\"}}}Content-Length", " 173\n"]
+        (lx_server 0.7.2) lib/lexical/server/transport/std_io.ex:126: LXical.Server.Transport.StdIO.parse_header/1
+        (elixir 1.18.1) lib/enum.ex:1714: Enum."-map/2-lists^map/1-1-"/2
+        (lx_server 0.7.2) lib/lexical/server/transport/std_io.ex:62: LXical.Server.Transport.StdIO.loop/3
+        (stdlib 5.0.2) proc_lib.erl:241: :proc_lib.init_p_do_apply/3
+Pid: #PID<0.1605.0>
+Start Call: LXical.Server.Transport.StdIO.start_link(:standard_io, &LXical.Server.protocol_message/1)
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+12:16:17.453 [error] Child LXical.Server.Transport.StdIO of Supervisor LXical.Server.Supervisor caused shutdown
+** (exit) :reached_max_restart_intensity
+Start Call: LXical.Server.Transport.StdIO.start_link(:standard_io, &LXical.Server.protocol_message/1)
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+12:16:17.458 [info] Application lx_server exited: shutdown
