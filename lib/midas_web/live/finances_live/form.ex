@@ -18,7 +18,7 @@ defmodule MidasWeb.FinancesLive.Form do
           |> assign(:finance, finance)
           |> assign(:mode, :edit)
           |> assign(:money_sources, money_sources)
-          |> assign(:selected_money_source_id, nil)
+          |> assign(:selected_money_source_id, finance.money_source_id)
           |> assign(:page_title, "Editar movimentação")
 
         {:ok, socket}
@@ -39,7 +39,15 @@ defmodule MidasWeb.FinancesLive.Form do
 
   @impl true
   def handle_event("save_finance", %{"finance" => params}, socket) do
-    do_save_finance(socket, params)
+    dbg(socket.assigns.mode)
+
+    case socket.assigns.mode do
+      :new ->
+        do_create_finance(socket, params)
+
+      :edit ->
+        do_update_finance(socket, params)
+    end
   end
 
   @impl true
@@ -66,7 +74,7 @@ defmodule MidasWeb.FinancesLive.Form do
     {:noreply, assign(socket, form: to_form(changeset))}
   end
 
-  defp do_save_finance(socket, params) do
+  defp do_create_finance(socket, params) do
     case Finances.create_finance(
            socket.assigns.current_user.id,
            socket.assigns.selected_money_source_id,
@@ -89,6 +97,31 @@ defmodule MidasWeb.FinancesLive.Form do
       {:error, "Unauthorized"} ->
         {:noreply,
          put_flash(socket, :error, "Você não tem permissão para criar movimentações nesta conta")}
+
+      {:error, changeset} ->
+        {:noreply, assign(socket, form: to_form(changeset))}
+    end
+  end
+
+  defp do_update_finance(socket, params) do
+    case Finances.update_finance(
+           socket.assigns.current_user.id,
+           socket.assigns.finance.id,
+           params
+         ) do
+      {:ok, %{finance: %Finance{}}} ->
+        socket =
+          socket
+          |> put_flash(:info, "Movimentação atualizada com sucesso")
+          |> push_navigate(to: ~p"/finances")
+
+        {:noreply, socket}
+
+      {:error, "User not found"} ->
+        {:noreply, put_flash(socket, :error, "Usuário não encontrado")}
+
+      {:error, "Finance not found"} ->
+        {:noreply, put_flash(socket, :error, "Movimentação não encontrada")}
 
       {:error, changeset} ->
         {:noreply, assign(socket, form: to_form(changeset))}
