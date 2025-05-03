@@ -5,18 +5,36 @@ defmodule MidasWeb.FinancesLive.Form do
   alias Midas.Finances.Finance
   alias Midas.Finances.MoneySource
   @impl true
-  def mount(_params, _session, socket) do
+  def mount(params, _session, socket) do
     money_sources = Finances.get_user_money_sources(socket.assigns.current_user)
 
-    socket =
-      socket
-      |> assign(form: to_form(Finances.change_finance(%Finance{})))
-      |> assign(:finance, nil)
-      |> assign(:mode, :new)
-      |> assign(:money_sources, money_sources)
-      |> assign(:selected_money_source_id, nil)
+    case params do
+      %{"id" => id} ->
+        {:ok, finance} = Finances.get_user_finance(socket.assigns.current_user.id, id)
 
-    {:ok, socket}
+        socket =
+          socket
+          |> assign(form: to_form(Finances.change_finance(finance)))
+          |> assign(:finance, finance)
+          |> assign(:mode, :edit)
+          |> assign(:money_sources, money_sources)
+          |> assign(:selected_money_source_id, nil)
+          |> assign(:page_title, "Editar movimentação")
+
+        {:ok, socket}
+
+      _ ->
+        socket =
+          socket
+          |> assign(form: to_form(Finances.change_finance(%Finance{})))
+          |> assign(:mode, :new)
+          |> assign(:finance, nil)
+          |> assign(:money_sources, money_sources)
+          |> assign(:selected_money_source_id, nil)
+          |> assign(:page_title, "Nova movimentação")
+
+        {:ok, socket}
+    end
   end
 
   @impl true
